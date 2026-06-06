@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ARIVELA — your profile, your places, your teachers — one home (hosts)</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --cream:#F9F6EF; --warm:#FFF6E9; --tint:#FAF3EA; --white:#FFFFFF;
+  --olive-tint:#F5F6F0;
+  --ink:#1D1D21; --sec:#5C5C5C; --muted:#8C8C8C; --hair:#E8E4DC;
+  --orange:#C8702A; --orange-deep:#A85A1E;
+  --olive:#6B6E45; --olive-deep:#4f5233;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:#cfcabd;}
+
+.page{
+  position:relative;
+  width:1748px;height:2480px;
+  background:
+    radial-gradient(1400px 1000px at 14% 5%, #F5F6F0 0%, rgba(245,246,240,0) 60%),
+    radial-gradient(1300px 1300px at 92% 98%, #F2F0E8 0%, rgba(242,240,232,0) 58%),
+    linear-gradient(178deg, #FBFAF4 0%, #F9F6EF 56%, #F4F2E9 100%);
+  overflow:hidden;
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+}
+
+.safe{
+  position:absolute;
+  left:118px;top:118px;right:118px;bottom:118px;
+  width:1512px;height:2244px;
+  display:flex;flex-direction:column;
+}
+
+/* ===== masthead ===== */
+.masthead{display:flex;flex-direction:column;align-items:flex-start;padding-top:6px;}
+.wordmark{
+  font-family:'Inter',sans-serif;font-weight:600;text-transform:uppercase;
+  font-size:46px;letter-spacing:0.4em;color:var(--ink);line-height:1;
+}
+.accent-rule{width:44px;height:2px;background:var(--olive);margin-top:20px;border-radius:2px;}
+
+/* ===== eyebrow ===== */
+.eyebrow{
+  margin-top:50px;
+  font-size:25px;font-weight:500;letter-spacing:0.34em;text-transform:lowercase;
+  color:var(--olive-deep);
+}
+
+/* ===== hero ===== */
+.hero{
+  margin-top:24px;
+  font-family:'Lora',serif;font-weight:500;font-style:normal;
+  font-size:78px;line-height:1.1;letter-spacing:-0.01em;color:var(--ink);
+  max-width:1400px;
+}
+.hero .em{font-style:italic;font-weight:500;color:var(--olive-deep);}
+
+/* ===== illustration zone (smaller — structure is the hero here) ===== */
+.scene{
+  position:relative;
+  margin-top:32px;
+  width:100%;height:430px;
+  overflow:visible;
+}
+.scene svg{display:block;width:100%;height:100%;}
+
+/* ===== value block — the stepped staircase of cards ===== */
+.cards{
+  margin-top:40px;
+  display:flex;flex-direction:column;gap:24px;
+}
+.card{
+  position:relative;
+  background:var(--white);
+  border:1px solid var(--hair);
+  border-radius:16px;
+  padding:30px 38px 32px 40px;
+  box-shadow:0 2px 12px rgba(75,82,51,0.04);
+}
+.card::before{
+  content:"";position:absolute;left:0;top:24px;bottom:24px;width:4px;
+  background:var(--olive);border-radius:0 4px 4px 0;
+}
+/* staircase indents 1->2->3 step inward a touch */
+.card.s1{margin-left:0;}
+.card.s2{margin-left:54px;}
+.card.s3{margin-left:108px;}
+.card .label{
+  font-family:'Lora',serif;font-weight:500;font-size:38px;line-height:1.18;color:var(--ink);
+}
+.card .label .accent{color:var(--olive-deep);font-style:italic;}
+.card .line{
+  margin-top:12px;
+  font-size:27px;line-height:1.5;font-weight:400;color:var(--sec);max-width:1080px;
+}
+.card .step-no{
+  position:absolute;top:30px;right:36px;
+  font-size:22px;font-weight:600;letter-spacing:0.12em;color:var(--muted);
+}
+
+/* the quiet "coming soon" card — lighter, recedes */
+.card.soon{
+  margin-left:162px;
+  background:var(--olive-tint);
+  border:1px dashed var(--hair);
+  box-shadow:none;
+}
+.card.soon::before{background:#c6c9b6;}
+.card.soon .label{font-size:31px;color:var(--sec);font-weight:400;}
+.card.soon .kicker{
+  display:inline-block;
+  font-size:20px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--olive);margin-bottom:10px;
+}
+.card.soon .line{font-size:25px;color:var(--muted);margin-top:4px;}
+
+/* ===== CTA + QR ===== */
+.cta-row{
+  margin-top:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:48px;
+  padding-bottom:6px;
+}
+.cta-left{display:flex;flex-direction:column;gap:28px;}
+.cta-pill{
+  display:inline-flex;align-items:center;gap:20px;align-self:flex-start;
+  background:var(--orange);color:var(--white);
+  font-size:32px;font-weight:500;letter-spacing:0.005em;
+  padding:30px 46px;border-radius:999px;
+  box-shadow:0 1px 0 rgba(63,41,14,0.12);
+}
+.cta-pill .arrow{font-size:30px;opacity:0.92;}
+.cta-note{font-size:27px;color:var(--sec);font-weight:400;max-width:560px;line-height:1.5;}
+.cta-note b{font-weight:600;color:var(--ink);}
+
+.qr-block{display:flex;flex-direction:column;align-items:center;gap:16px;}
+.qr-card{
+  width:200px;height:200px;background:var(--white);
+  border:1px solid var(--hair);border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 14px rgba(75,82,51,0.05);
+}
+.qr-card svg{width:158px;height:158px;display:block;}
+.qr-url{font-size:26px;font-weight:600;letter-spacing:0.03em;color:var(--ink);}
+
+/* ===== footer — five-cities spine (a felt focal beat, olive-toned) ===== */
+.footer{margin-top:44px;}
+.footer-lead{
+  font-family:'Lora',serif;font-style:italic;font-weight:400;
+  font-size:30px;color:var(--olive-deep);margin-bottom:24px;
+  display:flex;align-items:center;gap:22px;
+}
+.footer-lead::after{
+  content:"";flex:1;height:1px;
+  background:linear-gradient(90deg, var(--hair), rgba(232,228,220,0));
+}
+.footer-rule{
+  height:2px;width:100%;
+  background:linear-gradient(90deg, var(--olive) 0%, var(--olive) 14%, var(--hair) 14%, var(--hair) 100%);
+  border-radius:2px;
+}
+.cities{
+  margin-top:28px;display:flex;align-items:center;
+  font-size:29px;font-weight:500;letter-spacing:0.16em;text-transform:lowercase;color:var(--ink);
+}
+.cities .city{padding:0 32px;}
+.cities .city:first-child{padding-left:0;}
+.cities .sep{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--olive);opacity:0.55;
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="safe">
+
+    <!-- masthead (olive accent rule, grounded mood) -->
+    <div class="masthead">
+      <div class="wordmark">ARIVELA</div>
+      <div class="accent-rule"></div>
+    </div>
+
+    <!-- eyebrow -->
+    <div class="eyebrow">for hosts</div>
+
+    <!-- hero -->
+    <h1 class="hero">your profile, your places,<br>your teachers — <span class="em">one home.</span></h1>
+
+    <!-- illustration: cream + olive 'one home' shelter holding the three motifs -->
+    <div class="scene">
+      <svg viewBox="0 0 1512 430" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A soft rounded shelter holding three calm motifs: a seated figure, two linked circles, and a quiet coming-soon shape set slightly apart.">
+        <defs>
+          <!-- soft warmth that fades to nothing — no hard rectangle, the motif bleeds into the cream -->
+          <radialGradient id="g-glow2" cx="0.5" cy="0.46" r="0.62">
+            <stop offset="0" stop-color="#6B6E45" stop-opacity="0.09"/>
+            <stop offset="0.6" stop-color="#6B6E45" stop-opacity="0.03"/>
+            <stop offset="1" stop-color="#6B6E45" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="g-ground" cx="0.5" cy="0.95" r="0.7">
+            <stop offset="0" stop-color="#6B6E45" stop-opacity="0.12"/>
+            <stop offset="1" stop-color="#6B6E45" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="grain2">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+            <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0"/>
+            <feComposite operator="in" in2="SourceGraphic"/>
+          </filter>
+        </defs>
+
+        <!-- NO field rect: a soft radial warmth + grounding glow let the shelter sit native in the cream -->
+        <ellipse cx="756" cy="210" rx="820" ry="280" fill="url(#g-glow2)"/>
+        <ellipse cx="756" cy="408" rx="780" ry="150" fill="url(#g-ground)"/>
+
+        <!-- the 'home / shelter' — nested organic arcs, open at the base -->
+        <path d="M250 372
+                 C 250 188, 470 70, 756 70
+                 C 1042 70, 1262 188, 1262 372"
+              fill="none" stroke="#6B6E45" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+        <path d="M330 372
+                 C 330 232, 520 132, 756 132
+                 C 992 132, 1182 232, 1182 372"
+              fill="none" stroke="#6B6E45" stroke-width="3" stroke-linecap="round" opacity="0.42"/>
+        <!-- the grounding line (the floor of the home) -->
+        <line x1="250" y1="372" x2="1262" y2="372" stroke="#6B6E45" stroke-width="3" opacity="0.5" stroke-linecap="round"/>
+
+        <!-- motif 1: centered seated figure (profile / lineage) -->
+        <g transform="translate(548,372)">
+          <circle cx="0" cy="-150" r="34" fill="#6B6E45"/>
+          <!-- shoulders/body as a calm rounded base -->
+          <path d="M-78 0
+                   C -78 -70, -44 -112, 0 -112
+                   C 44 -112, 78 -70, 78 0 Z"
+                fill="#6B6E45" opacity="0.92"/>
+          <!-- a soft breath arc above the head -->
+          <path d="M-30 -196 C -10 -212, 10 -212, 30 -196"
+                fill="none" stroke="#6B6E45" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+        </g>
+
+        <!-- a faint hairline links the three motifs — the constellation-of-places spine -->
+        <path d="M548 222 L872 236 L1108 280"
+              fill="none" stroke="#6B6E45" stroke-width="2" opacity="0.4"
+              stroke-dasharray="2 10" stroke-linecap="round"/>
+
+        <!-- motif 2: two overlapping circles (a place linked to its teachers) -->
+        <g transform="translate(872,236)">
+          <circle cx="-46" cy="0" r="80" fill="none" stroke="#6B6E45" stroke-width="6" opacity="0.92"/>
+          <circle cx="46"  cy="0" r="80" fill="none" stroke="#6B6E45" stroke-width="6" opacity="0.92"/>
+          <!-- the overlap softly filled (the link) -->
+          <path d="M0 -65 A80 80 0 0 1 0 65 A80 80 0 0 1 0 -65 Z" fill="#6B6E45" opacity="0.18"/>
+          <circle cx="-46" cy="0" r="10" fill="#6B6E45" opacity="0.85"/>
+          <circle cx="46"  cy="0" r="10" fill="#6B6E45" opacity="0.85"/>
+        </g>
+
+        <!-- motif 3: the 'coming soon' place — set slightly apart, quieter but now legible at
+             print scale so the constellation-of-places spine reads clearly -->
+        <g transform="translate(1108,288)" opacity="0.78">
+          <circle cx="0" cy="0" r="52" fill="none" stroke="#6B6E45" stroke-width="4" stroke-dasharray="4 9" stroke-linecap="round"/>
+          <circle cx="0" cy="0" r="14" fill="#6B6E45" opacity="0.6"/>
+        </g>
+
+        <!-- subtle grain -->
+        <rect x="0" y="0" width="1512" height="430" filter="url(#grain2)" opacity="0.05"/>
+      </svg>
+    </div>
+
+    <!-- the stepped staircase of value cards -->
+    <div class="cards">
+      <div class="card s1">
+        <span class="step-no">01</span>
+        <div class="label">more guests — <span class="accent">for your events, retreats &amp; trainings</span></div>
+        <div class="line">be found by an international community, living across four countries, and growing.</div>
+      </div>
+      <div class="card s2">
+        <span class="step-no">02</span>
+        <div class="label">create your profile</div>
+        <div class="line">with your education, your training, your lineage — the practice you actually carry.</div>
+      </div>
+      <div class="card s3">
+        <span class="step-no">03</span>
+        <div class="label">add your places — <span class="accent">and link your teachers</span></div>
+        <div class="line">add the places you hold space in, and link them with the teachers who hold space there.</div>
+      </div>
+      <div class="card soon">
+        <span class="kicker">coming soon</span>
+        <div class="label">and soon — your online offerings</div>
+        <div class="line">share what you offer online, too.</div>
+      </div>
+    </div>
+
+    <!-- CTA + QR -->
+    <div class="cta-row">
+      <div class="cta-left">
+        <div class="cta-pill">create your host profile <span class="arrow">→</span></div>
+        <div class="cta-note">scan to begin — your whole teaching life, in <b>one home</b>.</div>
+      </div>
+      <div class="qr-block">
+        <div class="qr-card">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1D1D21" d="M2 2.5h7m2 0h5m2 0h1m1 0h7M2 3.5h1m5 0h1m3 0h2m1 0h4m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h5m2 0h1m2 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h2m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m1 0h1m1 0h3m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m1 0h2m1 0h1m2 0h1M2 10.5h1m1 0h5m4 0h2m1 0h1m3 0h5M2 11.5h2m2 0h1m2 0h1m3 0h1m5 0h1m1 0h1m3 0h1M2 12.5h1m1 0h1m1 0h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h1m1 0h2M2 13.5h1m11 0h1m1 0h2m8 0h1M6 14.5h7m4 0h1m1 0h2m1 0h1m1 0h3M2 15.5h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h1M2 16.5h1m4 0h6m2 0h3m3 0h3m1 0h2M2 17.5h1m2 0h3m1 0h1m2 0h1m1 0h2m1 0h6m3 0h1M2 18.5h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h5m1 0h1M10 19.5h2m5 0h2m3 0h2M2 20.5h7m2 0h4m3 0h1m1 0h1m1 0h1m1 0h3M2 21.5h1m5 0h1m1 0h1m1 0h2m2 0h1m1 0h1m3 0h2M2 22.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h6m1 0h1m1 0h1M2 23.5h1m1 0h3m1 0h1m1 0h2m2 0h3m2 0h2m1 0h5M2 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m2 0h1m3 0h2m1 0h1M2 25.5h1m5 0h1m5 0h2m1 0h7m2 0h1M2 26.5h7m1 0h1m3 0h1m1 0h1m4 0h6"/></svg>
+        </div>
+        <div class="qr-url">arivela.co</div>
+      </div>
+    </div>
+
+    <!-- footer: same five-cities spine as the front -->
+    <div class="footer">
+      <div class="footer-lead">one community, lived across the world</div>
+      <div class="footer-rule"></div>
+      <div class="cities">
+        <span class="city">rishikesh</span><span class="sep"></span>
+        <span class="city">ubud</span><span class="sep"></span>
+        <span class="city">london</span><span class="sep"></span>
+        <span class="city">berlin</span><span class="sep"></span>
+        <span class="city">tulum</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

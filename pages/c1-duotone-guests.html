@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root{
+    --cream:#F9F6EF;
+    --warm-cream:#FFF6E9;
+    --light-tint:#FAF3EA;
+    --ink:#1D1D21;
+    --sec:#5C5C5C;
+    --meta:#8C8C8C;
+    --hair:#E8E4DC;
+    --orange:#C8702A;
+    --orange-deep:#A85A1E;
+    --olive:#6B6E45;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#ddd;}
+  .page{
+    position:relative;
+    width:1748px;
+    height:2480px;
+    background:var(--cream);
+    overflow:hidden;
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  /* soft warm wash bleeding to edges */
+  .wash{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(1500px 1100px at 78% 18%, rgba(200,112,42,0.085), rgba(200,112,42,0) 62%),
+      radial-gradient(1300px 1000px at 12% 86%, rgba(255,246,233,0.9), rgba(255,246,233,0) 60%),
+      linear-gradient(180deg, var(--cream) 0%, var(--cream) 55%, #FBF8F1 100%);
+  }
+  .grain{position:absolute;inset:0;opacity:0.5;mix-blend-mode:multiply;pointer-events:none;}
+
+  .safe{
+    position:absolute;
+    left:118px;right:118px;top:118px;bottom:118px;
+    display:flex;flex-direction:column;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead{padding-top:14px;}
+  .wordmark{
+    font-family:'Inter';font-weight:600;font-size:46px;
+    letter-spacing:0.4em;text-transform:uppercase;color:var(--ink);
+    padding-left:0.4em; /* optical centering for tracking */
+  }
+  .rule{width:44px;height:2px;background:var(--orange);margin:22px 0 0 4px;}
+  .eyebrow{
+    margin-top:30px;
+    font-family:'Inter';font-weight:600;font-size:25px;
+    letter-spacing:0.34em;text-transform:uppercase;color:var(--orange);
+  }
+
+  /* ---------- hero ---------- */
+  .hero{margin-top:64px;}
+  .hero h1{
+    font-family:'Lora';font-style:italic;font-weight:500;
+    font-size:96px;line-height:1.08;letter-spacing:-0.012em;
+    color:var(--ink);max-width:1380px;white-space:nowrap;
+  }
+  .hero h1 .soft{color:var(--orange-deep);}
+  .subhead{
+    margin-top:40px;
+    font-family:'Inter';font-weight:400;font-size:33px;line-height:1.5;
+    color:var(--sec);max-width:1140px;
+  }
+
+  /* ---------- circle zone (constellation) ---------- */
+  .circle-zone{
+    position:relative;
+    margin-top:42px;
+    flex:1 1 auto;
+    min-height:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .constellation{width:100%;height:100%;display:block;}
+
+  /* ---------- payoff block ---------- */
+  .payoff{margin-top:10px;}
+  .payoff .hair{height:1px;background:var(--hair);width:100%;}
+  .payoff .support{
+    margin-top:38px;
+    font-family:'Lora';font-style:italic;font-weight:400;
+    font-size:38px;line-height:1.45;color:var(--ink);max-width:1180px;
+  }
+  .payoff .spine{
+    margin-top:26px;
+    font-family:'Inter';font-weight:400;font-size:29px;line-height:1.55;color:var(--sec);
+  }
+  .payoff .spine .cities{
+    font-family:'Lora';font-weight:500;font-style:normal;color:var(--ink);
+    letter-spacing:0.01em;
+  }
+
+  /* ---------- CTA + QR ---------- */
+  .cta-row{
+    margin-top:54px;
+    display:flex;align-items:center;justify-content:space-between;gap:48px;
+  }
+  .cta-text .lead{
+    font-family:'Inter';font-weight:600;font-size:23px;letter-spacing:0.16em;
+    text-transform:uppercase;color:var(--orange);
+  }
+  .cta-text .big{
+    margin-top:18px;
+    font-family:'Lora';font-style:italic;font-weight:500;font-size:54px;line-height:1.1;
+    color:var(--ink);
+  }
+  .cta-text .big .arrow{font-style:normal;color:var(--orange);}
+  .cta-text .url{
+    margin-top:22px;
+    font-family:'Inter';font-weight:600;font-size:34px;letter-spacing:0.01em;color:var(--ink);
+  }
+  .qr-card{
+    flex:0 0 auto;
+    background:#fff;
+    border:1px solid var(--hair);
+    border-radius:14px;
+    padding:20px;
+    display:flex;flex-direction:column;align-items:center;gap:12px;
+    box-shadow:0 1px 0 rgba(29,29,33,0.02);
+  }
+  .qr-card svg{width:176px;height:176px;display:block;}
+  .qr-card .scan{
+    font-family:'Inter';font-weight:500;font-size:19px;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--meta);
+  }
+
+  /* ---------- footer ---------- */
+  .footer{
+    margin-top:48px;padding-top:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .footer .line{
+    font-family:'Inter';font-weight:500;font-size:24px;letter-spacing:0.18em;
+    text-transform:uppercase;color:var(--sec);text-align:center;
+  }
+  .footer .line .dot{
+    color:var(--orange);padding:0 8px;font-weight:700;
+    position:relative;top:-1px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="wash"></div>
+  <svg class="grain" width="1748" height="2480" preserveAspectRatio="none">
+    <filter id="gr"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.045"/></feComponentTransfer></filter>
+    <rect width="100%" height="100%" filter="url(#gr)"/>
+  </svg>
+
+  <div class="safe">
+
+    <!-- masthead -->
+    <div class="masthead">
+      <div class="wordmark">ARIVELA</div>
+      <div class="rule"></div>
+      <div class="eyebrow">A worldwide circle</div>
+    </div>
+
+    <!-- hero -->
+    <div class="hero">
+      <h1><em>the experiences that matter,</em><br><span class="soft"><em>shared by a community.</em></span></h1>
+      <p class="subhead">Events, retreats and trainings held by people you can trust — and a circle you can belong to, wherever you are.</p>
+    </div>
+
+    <!-- circle zone : worldwide constellation, open orange ring -->
+    <div class="circle-zone">
+      <svg class="constellation" viewBox="0 0 1512 760" preserveAspectRatio="xMidYMid meet" fill="none" aria-hidden="true">
+        <defs>
+          <radialGradient id="held" cx="50%" cy="48%" r="62%">
+            <stop offset="0%" stop-color="#FFF6E9" stop-opacity="0.95"/>
+            <stop offset="62%" stop-color="#FBF1E4" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#F9F6EF" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="grainC" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" result="n"/>
+            <feColorMatrix in="n" type="saturate" values="0"/>
+            <feComponentTransfer><feFuncA type="linear" slope="0.04"/></feComponentTransfer>
+            <feComposite operator="in" in2="SourceGraphic"/>
+          </filter>
+        </defs>
+
+        <!-- held shared space inside the ring (enlarged + centred to fill the band) -->
+        <ellipse cx="756" cy="380" rx="650" ry="346" fill="url(#held)"/>
+
+        <!-- the open, not-quite-closed ring looping the five cities (the hero) -->
+        <path d="M 318 244
+                 C 142 322, 176 572, 446 648
+                 C 686 716, 1006 704, 1224 596
+                 C 1420 498, 1398 280, 1180 214
+                 C 1004 162, 762 160, 588 198"
+              stroke="#C8702A" stroke-width="4.5" fill="none" stroke-linecap="round"
+              stroke-dasharray="0.1 0" opacity="0.9"/>
+        <!-- open gap glyph: faint continuation, 'room to grow' -->
+        <path d="M588 198 C 520 211, 442 229, 376 252"
+              stroke="#C8702A" stroke-width="4.5" fill="none" stroke-linecap="round"
+              stroke-dasharray="2 22" opacity="0.55"/>
+
+        <!-- abstract human silhouette at one node: 'you, joining the circle'.
+             Same silhouette DNA as the hosts seated figure (head + open-arms curve +
+             teardrop body) — here lifted by a rising breath arc for the warm/guest mood. -->
+        <g transform="translate(318,250)" opacity="0.96">
+          <!-- breath arc rising from the figure (the warm 'flame/seed' note) -->
+          <path d="M0 -34 C -24 -78, 8 -108, -14 -150" stroke="#C8702A" stroke-width="3" fill="none"
+                stroke-linecap="round" opacity="0.6"/>
+          <!-- open arms curve (kin to hosts figure) -->
+          <path d="M-46 22 C -34 -18, -16 -34, 0 -34 C 16 -34, 34 -18, 46 22"
+                stroke="#C8702A" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <!-- head -->
+          <circle cx="0" cy="-22" r="13" fill="#C8702A"/>
+          <!-- teardrop body (same form language as hosts) -->
+          <path d="M-20 58 C -20 8, -14 -8, 0 -8 C 14 -8, 20 8, 20 58 Z" fill="#C8702A"/>
+        </g>
+
+        <!-- five city nodes (positions reused on hosts side) -->
+        <!-- node helper: dot + label -->
+        <g font-family="Lora" font-size="27" fill="#1D1D21" letter-spacing="0.06em">
+          <!-- Rishikesh (the joining node, larger lit dot already drawn as figure base) -->
+          <g transform="translate(318,250)">
+            <circle r="9" fill="#C8702A"/>
+            <circle r="20" fill="none" stroke="#C8702A" stroke-width="2" opacity="0.4"/>
+            <text x="-2" y="-44" text-anchor="middle" font-style="normal">Rishikesh</text>
+          </g>
+          <!-- Ubud -->
+          <g transform="translate(1180,214)">
+            <circle r="8" fill="#6B6E45"/>
+            <text x="0" y="-30" text-anchor="middle">Ubud</text>
+          </g>
+          <!-- London -->
+          <g transform="translate(446,648)">
+            <circle r="8" fill="#6B6E45"/>
+            <text x="0" y="46" text-anchor="middle">London</text>
+          </g>
+          <!-- Berlin -->
+          <g transform="translate(835,690)">
+            <circle r="8" fill="#6B6E45"/>
+            <text x="0" y="48" text-anchor="middle">Berlin</text>
+          </g>
+          <!-- Tulum -->
+          <g transform="translate(1224,596)">
+            <circle r="8" fill="#6B6E45"/>
+            <text x="6" y="44" text-anchor="middle">Tulum</text>
+          </g>
+        </g>
+
+        <!-- faint inner connective whisper through Berlin node so ring reads as one circle -->
+        <path d="M446 648 C 620 692, 740 694, 835 690 S 1108 644, 1224 596"
+              stroke="#C8702A" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.28"/>
+
+        <!-- low-opacity grain over the artwork -->
+        <ellipse cx="756" cy="380" rx="700" ry="372" fill="#C8702A" filter="url(#grainC)" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <!-- payoff -->
+    <div class="payoff">
+      <div class="hair"></div>
+      <p class="support">Find what's real and near — and become part of something that reaches well beyond it.</p>
+      <p class="spine"><span class="cities">Rishikesh · Ubud · London · Berlin · Tulum</span> &nbsp;— one community, living across four countries, and growing.</p>
+    </div>
+
+    <!-- CTA + QR -->
+    <div class="cta-row">
+      <div class="cta-text">
+        <div class="lead">Begin here</div>
+        <div class="big">discover what's near you <span class="arrow">→</span></div>
+        <div class="url">arivela.co</div>
+      </div>
+      <div class="qr-card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1D1D21" d="M2 2.5h7m2 0h5m2 0h1m1 0h7M2 3.5h1m5 0h1m3 0h2m1 0h4m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h5m2 0h1m2 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h2m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m1 0h1m1 0h3m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m1 0h2m1 0h1m2 0h1M2 10.5h1m1 0h5m4 0h2m1 0h1m3 0h5M2 11.5h2m2 0h1m2 0h1m3 0h1m5 0h1m1 0h1m3 0h1M2 12.5h1m1 0h1m1 0h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h1m1 0h2M2 13.5h1m11 0h1m1 0h2m8 0h1M6 14.5h7m4 0h1m1 0h2m1 0h1m1 0h3M2 15.5h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h1M2 16.5h1m4 0h6m2 0h3m3 0h3m1 0h2M2 17.5h1m2 0h3m1 0h1m2 0h1m1 0h2m1 0h6m3 0h1M2 18.5h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h5m1 0h1M10 19.5h2m5 0h2m3 0h2M2 20.5h7m2 0h4m3 0h1m1 0h1m1 0h1m1 0h3M2 21.5h1m5 0h1m1 0h1m1 0h2m2 0h1m1 0h1m3 0h2M2 22.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h6m1 0h1m1 0h1M2 23.5h1m1 0h3m1 0h1m1 0h2m2 0h3m2 0h2m1 0h5M2 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m2 0h1m3 0h2m1 0h1M2 25.5h1m5 0h1m5 0h2m1 0h7m2 0h1M2 26.5h7m1 0h1m3 0h1m1 0h1m4 0h6"/></svg>
+        <div class="scan">scan to explore</div>
+      </div>
+    </div>
+
+    <!-- footer five cities -->
+    <div class="footer">
+      <div class="line">Rishikesh<span class="dot">·</span>Ubud<span class="dot">·</span>London<span class="dot">·</span>Berlin<span class="dot">·</span>Tulum</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

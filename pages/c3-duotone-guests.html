@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ARIVELA — your practice has a home (guests)</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --cream:#F9F6EF; --warm:#FFF6E9; --tint:#FAF3EA; --white:#FFFFFF;
+  --ink:#1D1D21; --sec:#5C5C5C; --muted:#8C8C8C; --hair:#E8E4DC;
+  --orange:#C8702A; --orange-deep:#A85A1E; --olive:#6B6E45;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:#cfcabd;}
+
+.page{
+  position:relative;
+  width:1748px;height:2480px;
+  background:
+    radial-gradient(1500px 1100px at 78% 6%, #FFF6E9 0%, rgba(255,246,233,0) 62%),
+    radial-gradient(1300px 1500px at 8% 96%, #FAF3EA 0%, rgba(250,243,234,0) 60%),
+    linear-gradient(178deg, #FFFBF4 0%, #F9F6EF 55%, #F6F1E6 100%);
+  overflow:hidden;
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+}
+
+/* ---- content frame inside the ~118px safe margin ---- */
+.safe{
+  position:absolute;
+  left:118px;top:118px;right:118px;bottom:118px;
+  width:1512px;height:2244px;
+  display:flex;flex-direction:column;
+}
+
+/* ===== masthead ===== */
+.masthead{display:flex;flex-direction:column;align-items:flex-start;padding-top:6px;}
+.wordmark{
+  font-family:'Inter',sans-serif;font-weight:600;text-transform:uppercase;
+  font-size:46px;letter-spacing:0.4em;color:var(--ink);line-height:1;
+}
+.accent-rule{width:44px;height:2px;background:var(--orange);margin-top:20px;border-radius:2px;}
+
+/* ===== eyebrow ===== */
+.eyebrow{
+  margin-top:62px;
+  font-size:25px;font-weight:500;letter-spacing:0.34em;text-transform:lowercase;
+  color:var(--orange-deep);
+}
+.eyebrow .dot{color:var(--muted);margin:0 4px;font-weight:400;}
+
+/* ===== hero ===== */
+.hero{
+  margin-top:30px;
+  font-family:'Lora',serif;font-style:italic;font-weight:500;
+  font-size:128px;line-height:1.02;letter-spacing:-0.01em;
+  color:var(--ink);
+  max-width:1280px;
+}
+.hero .soft{color:#3a3a3f;}
+
+/* ===== illustration zone ===== */
+.scene{
+  position:relative;
+  margin-top:46px;
+  width:100%;height:760px;
+  overflow:visible;
+}
+.scene svg{display:block;width:100%;height:100%;}
+
+/* ===== value block ===== */
+.value{margin-top:54px;max-width:1240px;}
+.subhead{
+  font-family:'Lora',serif;font-weight:400;font-size:46px;line-height:1.34;color:var(--ink);
+}
+.support{
+  margin-top:22px;
+  font-size:30px;line-height:1.56;font-weight:400;color:var(--sec);max-width:1180px;
+}
+
+/* ===== CTA + QR — one cohesive cluster on a soft warm plate ===== */
+.cta-row{
+  margin-top:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:44px;
+  padding:40px 48px;
+  background:var(--tint);
+  border:1px solid var(--hair);
+  border-radius:24px;
+}
+.cta-left{display:flex;flex-direction:column;gap:24px;max-width:760px;}
+.cta-pill{
+  display:inline-flex;align-items:center;gap:20px;
+  align-self:flex-start;
+  background:var(--orange);color:var(--white);
+  font-size:33px;font-weight:500;letter-spacing:0.005em;
+  padding:30px 48px;border-radius:999px;
+  box-shadow:0 6px 18px rgba(168,90,30,0.18);
+}
+.cta-pill .arrow{font-size:30px;opacity:0.92;}
+.cta-note{
+  display:flex;align-items:flex-start;gap:14px;
+  font-size:27px;color:var(--sec);font-weight:400;max-width:600px;line-height:1.5;
+}
+.cta-note .scan-ic{
+  flex:none;margin-top:4px;color:var(--orange-deep);
+}
+.cta-note b{font-weight:600;color:var(--ink);}
+
+.qr-block{display:flex;flex-direction:column;align-items:center;gap:14px;}
+.qr-card{
+  width:204px;height:204px;background:var(--white);
+  border:1px solid var(--hair);border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 18px rgba(63,41,14,0.08);
+}
+.qr-card svg{width:160px;height:160px;display:block;}
+.qr-url{font-size:26px;font-weight:600;letter-spacing:0.03em;color:var(--ink);}
+
+/* ===== footer — the five-cities spine (a felt focal beat) ===== */
+.footer{margin-top:48px;}
+.footer-lead{
+  font-family:'Lora',serif;font-style:italic;font-weight:400;
+  font-size:30px;color:var(--orange-deep);margin-bottom:24px;
+  display:flex;align-items:center;gap:22px;
+}
+.footer-lead::after{
+  content:"";flex:1;height:1px;
+  background:linear-gradient(90deg, var(--hair), rgba(232,228,220,0));
+}
+.footer-rule{
+  height:2px;width:100%;
+  background:linear-gradient(90deg, var(--orange) 0%, var(--orange) 14%, var(--hair) 14%, var(--hair) 100%);
+  border-radius:2px;
+}
+.cities{
+  margin-top:28px;
+  display:flex;align-items:center;gap:0;
+  font-size:29px;font-weight:500;letter-spacing:0.16em;text-transform:lowercase;
+  color:var(--ink);
+}
+.cities .city{padding:0 32px;}
+.cities .city:first-child{padding-left:0;}
+.cities .sep{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--orange);opacity:0.55;
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="safe">
+
+    <!-- masthead -->
+    <div class="masthead">
+      <div class="wordmark">ARIVELA</div>
+      <div class="accent-rule"></div>
+    </div>
+
+    <!-- eyebrow -->
+    <div class="eyebrow">events<span class="dot">·</span>retreats<span class="dot">·</span>trainings</div>
+
+    <!-- hero -->
+    <h1 class="hero">your practice<br>has a <span class="soft">home</span></h1>
+
+    <!-- illustration: a calm seated, reaching figure; her breath ribbon arcs up to a
+         constellation of five places, then trails softly downward to carry the eye -->
+    <div class="scene">
+      <svg viewBox="0 0 1512 800" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A calm seated figure reaching gently upward; her breath flows in a long ribbon that rises to a small constellation of five places and trails softly back down.">
+        <defs>
+          <linearGradient id="g-path" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#C8702A" stop-opacity="0.18"/>
+            <stop offset="1" stop-color="#C8702A" stop-opacity="0.05"/>
+          </linearGradient>
+          <linearGradient id="g-trail" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#C8702A" stop-opacity="0.12"/>
+            <stop offset="1" stop-color="#C8702A" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="g-sun" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0" stop-color="#C8702A" stop-opacity="0.16"/>
+            <stop offset="1" stop-color="#C8702A" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="g-body" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#C8702A"/>
+            <stop offset="1" stop-color="#A85A1E"/>
+          </linearGradient>
+          <filter id="grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+            <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0"/>
+            <feComposite operator="in" in2="SourceGraphic"/>
+          </filter>
+        </defs>
+
+        <!-- NO field rect: the illustration bleeds into the page cream (not boxed) -->
+        <!-- soft warmth behind the seated figure -->
+        <circle cx="360" cy="470" r="380" fill="url(#g-sun)"/>
+
+        <!-- the breath ribbon fill: a wide soft band that leaves the reaching hand and arcs up
+             to the constellation, then a lower trail descends to draw the eye downward -->
+        <path d="M414 452
+                 C 540 422, 640 356, 720 280
+                 C 820 180, 980 132, 1180 124
+                 C 1300 120, 1392 132, 1448 150
+                 C 1392 176, 1300 168, 1196 180
+                 C 1000 200, 860 252, 760 352
+                 C 668 444, 560 500, 420 512 Z"
+              fill="url(#g-path)"/>
+
+        <!-- continuous breath-curve line: from the reaching hand, opening outward to the dots -->
+        <path d="M412 460
+                 C 548 426, 648 360, 728 286
+                 C 828 188, 988 142, 1188 134
+                 C 1308 130, 1396 142, 1452 160"
+              fill="none" stroke="#C8702A" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+
+        <!-- a calm SEATED, reaching figure — organic filled body, no facial features,
+             thick rounded forms (editorial silhouette, not stick-figure) -->
+        <g>
+          <!-- folded legs / seated base: a low, grounded, rounded mound -->
+          <path d="M120 700
+                   C 150 612, 248 560, 372 560
+                   C 470 560, 540 588, 560 644
+                   C 572 678, 540 706, 470 712
+                   C 360 720, 210 720, 150 716
+                   C 128 714, 114 710, 120 700 Z"
+                fill="#C8702A" opacity="0.32"/>
+          <!-- the reaching arm: one clean thick organic limb sweeping up from the shoulder
+               to the hand where the breath ribbon begins (drawn UNDER the torso so it reads
+               as flowing out of the body) -->
+          <path d="M338 392
+                   C 322 350, 348 322, 384 332
+                   C 408 338, 420 360, 426 398
+                   C 432 436, 430 470, 410 478
+                   C 392 470, 380 446, 372 420
+                   C 366 402, 354 396, 344 402
+                   C 338 406, 336 400, 338 392 Z"
+                fill="#C8702A"/>
+          <!-- the seated torso: a tall soft teardrop, calm and grounded -->
+          <path d="M268 560
+                   C 232 468, 240 384, 290 330
+                   C 326 290, 384 290, 416 332
+                   C 452 380, 456 470, 422 552
+                   C 406 590, 360 606, 318 598
+                   C 292 592, 276 580, 268 560 Z"
+                fill="url(#g-body)"/>
+          <!-- head: round, no features, tilted gently up toward the breath -->
+          <circle cx="318" cy="282" r="52" fill="#C8702A"/>
+          <!-- a soft breath arc just above the crown -->
+          <path d="M286 222 C 308 204, 328 204, 350 222"
+                fill="none" stroke="#C8702A" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+        </g>
+
+        <!-- the constellation of five places, linked along the breath path -->
+        <g>
+          <!-- connecting hairline between the dots -->
+          <path d="M1188 134 L1268 178 L1346 142 L1414 196 L1466 150"
+                fill="none" stroke="#6B6E45" stroke-width="2.5" opacity="0.55"
+                stroke-dasharray="2 9" stroke-linecap="round"/>
+          <!-- dots (five places) -->
+          <circle cx="1188" cy="134" r="15" fill="#C8702A"/>
+          <circle cx="1268" cy="178" r="12" fill="#C8702A" opacity="0.92"/>
+          <circle cx="1346" cy="142" r="14" fill="#6B6E45" opacity="0.9"/>
+          <circle cx="1414" cy="196" r="11" fill="#C8702A" opacity="0.9"/>
+          <circle cx="1466" cy="150" r="13" fill="#C8702A"/>
+          <!-- faint halos -->
+          <circle cx="1188" cy="134" r="28" fill="none" stroke="#C8702A" stroke-width="2" opacity="0.3"/>
+          <circle cx="1466" cy="150" r="26" fill="none" stroke="#C8702A" stroke-width="2" opacity="0.3"/>
+        </g>
+
+        <!-- the breath TRAILS back down: a long descending ribbon + a few drifting marks that
+             carry the eye into the space below (intentional, not a void) -->
+        <path d="M1452 160
+                 C 1300 230, 1140 300, 980 410
+                 C 840 506, 720 600, 640 700
+                 C 600 750, 576 778, 560 798"
+              fill="none" stroke="#C8702A" stroke-width="3" stroke-linecap="round"
+              opacity="0.42" stroke-dasharray="1 14"/>
+        <path d="M1452 160
+                 C 1320 232, 1170 300, 1020 404
+                 C 900 488, 800 568, 740 660"
+              fill="none" stroke="url(#g-trail)" stroke-width="60" stroke-linecap="round"/>
+        <!-- small drifting place-marks along the descent -->
+        <circle cx="1020" cy="402" r="7" fill="#C8702A" opacity="0.5"/>
+        <circle cx="848"  cy="520" r="6" fill="#6B6E45" opacity="0.45"/>
+        <circle cx="712"  cy="640" r="6" fill="#C8702A" opacity="0.4"/>
+
+        <!-- very subtle grain -->
+        <rect x="0" y="0" width="1512" height="800" filter="url(#grain)" opacity="0.05"/>
+      </svg>
+    </div>
+
+    <!-- value block -->
+    <div class="value">
+      <div class="subhead">find experiences that truly matter — and the real people and places behind them.</div>
+      <div class="support">step in for an evening, or grow into a training over a year. it's all here, in one place you can return to.</div>
+    </div>
+
+    <!-- CTA + QR -->
+    <div class="cta-row">
+      <div class="cta-left">
+        <div class="cta-pill">discover what's near you <span class="arrow">→</span></div>
+        <div class="cta-note">
+          <svg class="scan-ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/></svg>
+          <span>scan to find experiences <b>near you</b> — and the people behind them.</span>
+        </div>
+      </div>
+      <div class="qr-block">
+        <div class="qr-card">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1D1D21" d="M2 2.5h7m2 0h5m2 0h1m1 0h7M2 3.5h1m5 0h1m3 0h2m1 0h4m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h5m2 0h1m2 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h2m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m1 0h1m1 0h3m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m1 0h2m1 0h1m2 0h1M2 10.5h1m1 0h5m4 0h2m1 0h1m3 0h5M2 11.5h2m2 0h1m2 0h1m3 0h1m5 0h1m1 0h1m3 0h1M2 12.5h1m1 0h1m1 0h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h1m1 0h2M2 13.5h1m11 0h1m1 0h2m8 0h1M6 14.5h7m4 0h1m1 0h2m1 0h1m1 0h3M2 15.5h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h1M2 16.5h1m4 0h6m2 0h3m3 0h3m1 0h2M2 17.5h1m2 0h3m1 0h1m2 0h1m1 0h2m1 0h6m3 0h1M2 18.5h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h5m1 0h1M10 19.5h2m5 0h2m3 0h2M2 20.5h7m2 0h4m3 0h1m1 0h1m1 0h1m1 0h3M2 21.5h1m5 0h1m1 0h1m1 0h2m2 0h1m1 0h1m3 0h2M2 22.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h6m1 0h1m1 0h1M2 23.5h1m1 0h3m1 0h1m1 0h2m2 0h3m2 0h2m1 0h5M2 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m2 0h1m3 0h2m1 0h1M2 25.5h1m5 0h1m5 0h2m1 0h7m2 0h1M2 26.5h7m1 0h1m3 0h1m1 0h1m4 0h6"/></svg>
+        </div>
+        <div class="qr-url">arivela.co</div>
+      </div>
+    </div>
+
+    <!-- footer: five-cities spine -->
+    <div class="footer">
+      <div class="footer-lead">one community, lived across the world</div>
+      <div class="footer-rule"></div>
+      <div class="cities">
+        <span class="city">rishikesh</span><span class="sep"></span>
+        <span class="city">ubud</span><span class="sep"></span>
+        <span class="city">london</span><span class="sep"></span>
+        <span class="city">berlin</span><span class="sep"></span>
+        <span class="city">tulum</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

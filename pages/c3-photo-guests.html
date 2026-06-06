@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ARIVELA — guests (c3 photo)</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { background: #d9d4c8; }
+
+  .page {
+    position: relative;
+    width: 1748px;
+    height: 2480px;
+    overflow: hidden;
+    /* warm cream field, orange-forward */
+    background:
+      radial-gradient(120% 70% at 78% 8%, #FFF6E9 0%, rgba(255,246,233,0) 55%),
+      radial-gradient(100% 60% at 12% 100%, #FAF3EA 0%, rgba(250,243,234,0) 60%),
+      #F9F6EF;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #1D1D21;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* safe-margin content frame (~118px) */
+  .safe {
+    position: absolute;
+    top: 118px;
+    left: 118px;
+    right: 118px;
+    bottom: 118px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead { text-align: center; padding-top: 8px; }
+  .wordmark {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: 0.4em;
+    /* optical centering against the right-shifted tracking */
+    text-indent: 0.4em;
+    color: #1D1D21;
+    text-transform: uppercase;
+  }
+  .accent-rule {
+    width: 44px;
+    height: 2px;
+    background: #C8702A;
+    margin: 16px auto 0;
+  }
+
+  /* ---------- eyebrow ---------- */
+  .eyebrow {
+    margin-top: 52px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 0.34em;
+    text-transform: lowercase;
+    color: #A85A1E;
+  }
+  .eyebrow .dot { color: #C8702A; padding: 0 4px; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    margin-top: 44px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 132px;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    color: #1D1D21;
+  }
+  .hero h1 .soft { color: #3F290E; }
+
+  /* ---------- focal image zone ---------- */
+  .focal {
+    margin-top: 50px;
+    position: relative;
+    height: 740px;
+  }
+  .frame {
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid #E8E4DC;
+    background:
+      linear-gradient(155deg, rgba(255,246,233,0.6) 0%, rgba(250,243,234,0.9) 100%);
+    overflow: hidden;
+  }
+  /* the main slot carries a slightly deeper cream fill + a crisper inner
+     hairline so the empty focal frame reads as an intentional styled
+     placeholder, not blank space */
+  .frame--main {
+    border-color: #E2DCD0;
+    background:
+      linear-gradient(155deg, #FBF4E8 0%, #F6EEDF 100%);
+    box-shadow: inset 0 0 0 1px rgba(232,228,220,0.55);
+  }
+  .frame .label {
+    position: absolute;
+    border-radius: 5px;
+  }
+  .ad {
+    font-size: 24px;
+    line-height: 1.5;
+    color: #5C5C5C;
+    font-weight: 400;
+  }
+  .ad .mark {
+    display: inline-block;
+    font-size: 26px;
+    color: #C8702A;
+    margin-right: 8px;
+  }
+  .ad .kicker {
+    display: block;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #8C8C8C;
+    margin-bottom: 14px;
+  }
+  .ad .freepik {
+    display: block;
+    margin-top: 18px;
+    font-size: 22px;
+    color: #8C8C8C;
+  }
+  .ad .freepik em { font-style: italic; color: #6B6E45; }
+
+  /* main wide frame */
+  .frame--main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1090px;
+    height: 740px;
+  }
+  .frame--main .pad { position: absolute; top: 44px; left: 48px; right: 48px; }
+  .frame--main .corner {
+    position: absolute;
+    bottom: 40px;
+    left: 48px;
+    font-size: 22px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #BBB3A4;
+    font-weight: 600;
+  }
+
+  /* small inset — the place behind it */
+  .frame--inset {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 392px;
+    height: 470px;
+    background:
+      linear-gradient(155deg, rgba(245,246,240,0.7) 0%, rgba(249,246,239,0.95) 100%);
+  }
+  .frame--inset .pad { position: absolute; top: 34px; left: 36px; right: 36px; }
+  .frame--inset .ad { font-size: 22px; }
+  /* keep proof annotations at/above the 22px caption floor */
+  .frame--inset .ad .kicker { font-size: 22px; margin-bottom: 12px; }
+  .frame--inset .ad .freepik { font-size: 22px; margin-top: 14px; }
+
+  /* ---------- value block ---------- */
+  .value {
+    /* extra air above so the front's hierarchy (headline → value → CTA)
+       reads clearly and the core line lifts off the empty focal frame */
+    margin-top: 78px;
+    text-align: center;
+  }
+  .value .sub {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 1.4;
+    color: #1D1D21;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .value .support {
+    margin-top: 22px;
+    font-size: 29px;
+    line-height: 1.55;
+    color: #5C5C5C;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ---------- CTA + QR ---------- */
+  .cta-row {
+    margin-top: auto;
+    margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* a touch more air between the orange pill and the QR so the cluster
+       breathes; QR also keeps a generous white quiet zone (see .qr padding) */
+    gap: 72px;
+  }
+  .cta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    background: #C8702A;
+    color: #FFF6E9;
+    border-radius: 999px;
+    padding: 30px 48px;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+  }
+  .cta-pill .arrow { font-size: 30px; opacity: 0.92; }
+  .qr-block { text-align: center; }
+  .qr-block .qr {
+    /* 154px of actual modules + an 18px white quiet zone all round, so the
+       QR holds well above the 150px floor even after bleed/crop is added */
+    width: 190px;
+    height: 190px;
+    padding: 18px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: 1px solid #E8E4DC;
+  }
+  .qr-block .qr svg { width: 100%; height: 100%; display: block; }
+  .qr-block .url {
+    margin-top: 14px;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #1D1D21;
+  }
+
+  /* ---------- footer: worldwide-circle spine ---------- */
+  .footer { margin-top: 34px; }
+  .footer .lead {
+    text-align: center;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 28px;
+    color: #6B6E45;
+    margin-bottom: 22px;
+  }
+  .footer .rule { height: 1px; background: #E8E4DC; }
+
+  /* the worldwide circle, made visible: five city nodes strung on a faint
+     constellation line that bows up slightly between them (an arc you feel,
+     not a flat list) */
+  .footer .constellation {
+    margin-top: 30px;
+    position: relative;
+    height: 96px;
+  }
+  .footer .arc {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 30px;
+    height: 40px;
+  }
+  .footer .arc svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .footer .cities {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 4%;
+  }
+  .footer .cities .stop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+  .footer .cities .node {
+    width: 11px; height: 11px; border-radius: 50%;
+    background: #C8702A;
+    box-shadow: 0 0 0 6px rgba(200,112,42,0.10);
+    margin-top: 24px;
+  }
+  .footer .cities .city {
+    margin-top: 20px;
+    font-size: 27px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: lowercase;
+    color: #1D1D21;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="safe">
+
+      <!-- masthead -->
+      <div class="masthead">
+        <div class="wordmark">ARIVELA</div>
+        <div class="accent-rule"></div>
+      </div>
+
+      <!-- eyebrow -->
+      <div class="eyebrow">events<span class="dot">·</span>retreats<span class="dot">·</span>trainings</div>
+
+      <!-- hero -->
+      <div class="hero">
+        <h1>your practice<br>has a <span class="soft">home</span></h1>
+      </div>
+
+      <!-- focal image zone: one wide frame + tiny place inset -->
+      <div class="focal">
+        <div class="frame frame--main">
+          <div class="pad">
+            <div class="ad">
+              <span class="kicker">◳ photo — the people behind it</span>
+              <span class="mark">◳</span>A warm, unposed moment that says “the real people and places behind it.”
+              Two or three people in quiet conversation at the edge of a session — a sunlit studio
+              or a simple retreat terrace, mid-listen, not posed to camera. Real, diverse, unhurried.
+              Natural window light, warm neutrals. Leaves clear room upper-left for the headline to breathe.
+              <span class="freepik"><em>Freepik:</em> “yoga studio candid natural light conversation” · “small retreat group warm tones real people” · “people talking after wellness class window light”</span>
+            </div>
+          </div>
+          <div class="corner">focal moment</div>
+        </div>
+
+        <div class="frame frame--inset">
+          <div class="pad">
+            <div class="ad">
+              <span class="kicker">◳ the place behind it</span>
+              A quiet establishing detail of a <em>place</em> — an empty, sunlit practice room
+              or a terrace with mats rolled, no people, warm neutrals. Signals “a real space you can find.”
+              <span class="freepik"><em>Freepik:</em> “empty yoga studio morning light minimal” · “calm retreat space interior warm neutral”</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- value block -->
+      <div class="value">
+        <div class="sub">find experiences that truly matter —<br>and the real people and places behind them.</div>
+        <div class="support">step in for an evening, or grow into a training over a year.<br>it’s all here, in one place you can return to.</div>
+      </div>
+
+      <!-- CTA + QR -->
+      <div class="cta-row">
+        <div class="cta-pill">discover what’s near you <span class="arrow">→</span></div>
+        <div class="qr-block">
+          <div class="qr">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1D1D21" d="M2 2.5h7m2 0h5m2 0h1m1 0h7M2 3.5h1m5 0h1m3 0h2m1 0h4m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h5m2 0h1m2 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h2m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m1 0h1m1 0h3m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m1 0h2m1 0h1m2 0h1M2 10.5h1m1 0h5m4 0h2m1 0h1m3 0h5M2 11.5h2m2 0h1m2 0h1m3 0h1m5 0h1m1 0h1m3 0h1M2 12.5h1m1 0h1m1 0h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h1m1 0h2M2 13.5h1m11 0h1m1 0h2m8 0h1M6 14.5h7m4 0h1m1 0h2m1 0h1m1 0h3M2 15.5h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h1M2 16.5h1m4 0h6m2 0h3m3 0h3m1 0h2M2 17.5h1m2 0h3m1 0h1m2 0h1m1 0h2m1 0h6m3 0h1M2 18.5h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h5m1 0h1M10 19.5h2m5 0h2m3 0h2M2 20.5h7m2 0h4m3 0h1m1 0h1m1 0h1m1 0h3M2 21.5h1m5 0h1m1 0h1m1 0h2m2 0h1m1 0h1m3 0h2M2 22.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h6m1 0h1m1 0h1M2 23.5h1m1 0h3m1 0h1m1 0h2m2 0h3m2 0h2m1 0h5M2 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m2 0h1m3 0h2m1 0h1M2 25.5h1m5 0h1m5 0h2m1 0h7m2 0h1M2 26.5h7m1 0h1m3 0h1m1 0h1m4 0h6"/></svg>
+          </div>
+          <div class="url">arivela.co</div>
+        </div>
+      </div>
+
+      <!-- footer: worldwide-circle spine, made visible as a constellation -->
+      <div class="footer">
+        <div class="lead">one community, lived across the world</div>
+        <div class="rule"></div>
+        <div class="constellation">
+          <div class="arc" aria-hidden="true">
+            <svg viewBox="0 0 1000 40" preserveAspectRatio="none" fill="none">
+              <path d="M0 34 C 250 -2, 750 -2, 1000 34" stroke="#E0C9B0" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="cities">
+            <span class="stop"><span class="node"></span><span class="city">rishikesh</span></span>
+            <span class="stop"><span class="node"></span><span class="city">ubud</span></span>
+            <span class="stop"><span class="node"></span><span class="city">london</span></span>
+            <span class="stop"><span class="node"></span><span class="city">berlin</span></span>
+            <span class="stop"><span class="node"></span><span class="city">tulum</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

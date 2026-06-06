@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ARIVELA — Worldwide Circle — Hosts (photo)</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --cream:#F9F6EF; --warm:#FFF6E9; --white:#FFFFFF;
+  --ink:#1D1D21; --sec:#5C5C5C; --mut:#8C8C8C; --hair:#E8E4DC;
+  --orange:#C8702A; --orange-deep:#A85A1E; --orange-tint:#FAF3EA;
+  --olive:#6B6E45; --olive-tint:#F5F6F0; --olive-deep:#12130C;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#d4d3c5}
+.page{
+  position:relative;
+  width:1748px;height:2480px;
+  background:
+    radial-gradient(110% 70% at 18% 8%, rgba(245,246,240,.95) 0%, rgba(245,246,240,0) 50%),
+    radial-gradient(95% 55% at 88% 94%, rgba(245,246,240,.85) 0%, rgba(245,246,240,0) 55%),
+    var(--cream);
+  overflow:hidden;
+  font-family:'Inter',sans-serif;color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+.safe{position:absolute;left:118px;right:118px;top:118px;bottom:118px;display:flex;flex-direction:column}
+
+/* 1. Masthead */
+.masthead{display:flex;flex-direction:column;align-items:flex-start}
+.wordmark{font-family:'Inter',sans-serif;font-weight:600;font-size:46px;letter-spacing:.4em;text-transform:uppercase;color:var(--ink);padding-left:.4em}
+.accent-rule{width:44px;height:2px;background:var(--olive);margin-top:18px}
+.eyebrow{margin-top:30px;font-family:'Inter',sans-serif;font-weight:600;font-size:25px;letter-spacing:.32em;text-transform:uppercase;color:var(--olive)}
+
+/* 2. Hero */
+.hero{margin-top:54px;max-width:1280px}
+.hero h1{font-family:'Lora',serif;font-style:italic;font-weight:500;font-size:96px;line-height:1.05;letter-spacing:-.01em;color:var(--ink)}
+.hero h1 .soft{color:var(--olive)}
+.intro{margin-top:32px;max-width:1060px;font-family:'Inter',sans-serif;font-weight:400;font-size:32px;line-height:1.48;color:var(--sec)}
+
+/* 3. Circle zone */
+.circle-zone{
+  position:relative;margin-top:50px;height:452px;border-radius:8px;overflow:hidden;
+  background:linear-gradient(150deg,#F6F7F0 0%, #EEF0E6 100%);
+  border:1px solid var(--hair);
+}
+.ring{position:absolute;inset:0;width:100%;height:100%}
+.node{position:absolute;display:flex;flex-direction:column;align-items:center;transform:translate(-50%,-50%)}
+.node .dot{width:11px;height:11px;border-radius:50%;background:var(--olive);box-shadow:0 0 0 5px rgba(107,110,69,.13)}
+.node.host .dot{width:17px;height:17px;background:var(--orange);box-shadow:0 0 0 8px rgba(200,112,42,.16),0 0 0 16px rgba(200,112,42,.07)}
+.node .city{margin-top:11px;font-family:'Lora',serif;font-weight:500;font-size:23px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.node.host .city{color:var(--orange-deep)}
+.frame-note{position:absolute;left:42px;top:36px;max-width:470px;font-family:'Inter',sans-serif;font-weight:400;font-size:22px;line-height:1.5;color:#8f9182}
+.frame-note .tag{display:inline-block;font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:19px;color:#7c7f5e;margin-bottom:9px}
+.frame-note em{font-style:italic;color:#8C8C8C}
+
+/* 4. Value block (four props) */
+.props{margin-top:46px}
+.prop{display:grid;grid-template-columns:64px 1fr;gap:30px;padding:30px 0;border-top:1px solid var(--hair);align-items:start}
+.prop:first-child{border-top:none;padding-top:6px}
+.prop .ix{font-family:'Lora',serif;font-style:italic;font-weight:500;font-size:42px;color:var(--olive);line-height:1;padding-top:6px}
+.prop .label{font-family:'Lora',serif;font-weight:500;font-size:40px;line-height:1.12;color:var(--ink)}
+.prop .body{margin-top:13px;font-family:'Inter',sans-serif;font-weight:400;font-size:30px;line-height:1.46;color:var(--sec);max-width:1180px}
+.prop.soon{padding-bottom:8px}
+.prop.soon .label{color:var(--mut);font-style:italic;font-weight:400;display:flex;align-items:center;gap:18px;font-size:34px}
+.chip{font-family:'Inter',sans-serif;font-weight:600;font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);background:var(--olive-tint);border:1px solid #DCDFD2;border-radius:999px;padding:7px 17px}
+.prop.soon .body{color:var(--mut);font-size:28px}
+.prop.soon .ix{color:var(--mut)}
+
+/* 5. CTA + QR — grounded olive panel (uses light-module QR) */
+.cta-band{
+  margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:54px;
+  background:
+    radial-gradient(120% 160% at 88% 10%, rgba(123,127,80,.55), rgba(123,127,80,0) 60%),
+    linear-gradient(135deg,#6B6E45 0%, #565838 100%);
+  border-radius:14px;padding:54px 60px;
+}
+.cta-text{max-width:880px}
+.cta-text .lead{font-family:'Lora',serif;font-style:italic;font-weight:500;font-size:54px;line-height:1.12;color:#FBFBF6}
+.cta-text .lead .arrow{color:var(--orange);font-style:normal;font-weight:600}
+.cta-text .url{margin-top:18px;font-family:'Inter',sans-serif;font-weight:600;font-size:34px;letter-spacing:.02em;color:#EDEEE2}
+.qr-block{display:flex;flex-direction:column;align-items:center;flex:0 0 auto}
+.qr-card{width:204px;height:204px;display:flex;align-items:center;justify-content:center;padding:14px}
+.qr-card svg{width:176px;height:176px;display:block}
+.qr-block .qr-cap{margin-top:12px;font-family:'Inter',sans-serif;font-weight:600;font-size:24px;letter-spacing:.05em;color:#F3F4EB}
+
+/* 6. Footer cities */
+.footer{margin-top:40px;display:flex;align-items:center;gap:22px}
+.footer .line{flex:1;height:1px;background:var(--hair)}
+.footer .cities{font-family:'Inter',sans-serif;font-weight:400;font-size:25px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="safe">
+
+    <!-- 1. Masthead -->
+    <div class="masthead">
+      <div class="wordmark">ARIVELA</div>
+      <div class="accent-rule"></div>
+      <div class="eyebrow">Join the Circle as a Host</div>
+    </div>
+
+    <!-- 2. Hero -->
+    <div class="hero">
+      <h1><span class="soft">be found</span> by the people<br>already moving<br>between these places.</h1>
+      <p class="intro">You don't have to be a marketer. You just have to be findable — to a community that's already here.</p>
+    </div>
+
+    <!-- 3. Circle zone: host node at the centre, lines converging inward -->
+    <div class="circle-zone">
+      <svg class="ring" viewBox="0 0 1512 452" preserveAspectRatio="none" aria-hidden="true">
+        <!-- four outer nodes send soft lines toward the host node (~71%,63% = 1073,285) -->
+        <g stroke="#6B6E45" stroke-width="1.4" stroke-dasharray="2 9" stroke-linecap="round" opacity=".62" fill="none">
+          <path d="M 695 250 C 860 255, 970 270, 1073 285"/>
+          <path d="M 920 131 C 1000 190, 1040 245, 1073 285"/>
+          <path d="M 1135 136 C 1120 190, 1095 245, 1073 285"/>
+          <path d="M 1300 217 C 1230 245, 1150 268, 1073 285"/>
+        </g>
+        <path d="M 695 250 C 860 110, 1240 110, 1340 260 C 1230 388, 815 398, 695 250 Z"
+              fill="rgba(123,127,80,.07)" stroke="#6B6E45" stroke-width="1" stroke-dasharray="2 10" opacity=".4"/>
+      </svg>
+
+      <div class="node"      style="left:46%;top:55%"><div class="dot"></div><div class="city">Rishikesh</div></div>
+      <div class="node"      style="left:61%;top:29%"><div class="dot"></div><div class="city">Ubud</div></div>
+      <div class="node"      style="left:75%;top:30%"><div class="dot"></div><div class="city">London</div></div>
+      <div class="node"      style="left:86%;top:48%"><div class="dot"></div><div class="city">Tulum</div></div>
+      <div class="node host" style="left:71%;top:63%"><div class="dot"></div><div class="city">Berlin · you</div></div>
+
+      <div class="frame-note">
+        <span class="tag">◳ Photo — the circle zone</span><br>
+        A host in their element, understated: a teacher in their own studio or retreat room, mid-ordinary-moment, warm window light, calm competence — a real person who holds space here, not a brand ambassador. Room for the hero line and city labels.
+        <em>Freepik: "yoga teacher own studio natural light candid", "facilitator preparing space warm neutral documentary", "wellness host portrait real person calm not posed".</em>
+      </div>
+    </div>
+
+    <!-- 4. Value block -->
+    <div class="props">
+      <div class="prop">
+        <div class="ix">i</div>
+        <div>
+          <div class="label">more guests, without the shouting.</div>
+          <div class="body">More people for your events, retreats and trainings — reaching an international community living across four countries, and growing.</div>
+        </div>
+      </div>
+      <div class="prop">
+        <div class="ix">ii</div>
+        <div>
+          <div class="label">a profile that holds your whole practice.</div>
+          <div class="body">Create your profile with your education, training and lineage — the way you actually learned to hold space, in your own words.</div>
+        </div>
+      </div>
+      <div class="prop">
+        <div class="ix">iii</div>
+        <div>
+          <div class="label">your places, and the teachers within them.</div>
+          <div class="body">Add your places — studios, retreat homes, training spaces — and link them with the teachers who hold space there.</div>
+        </div>
+      </div>
+      <div class="prop soon">
+        <div class="ix">iv</div>
+        <div>
+          <div class="label">soon — your online offerings <span class="chip">coming soon</span></div>
+          <div class="body">Soon, you'll be able to list your online offerings too.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. CTA + QR -->
+    <div class="cta-band">
+      <div class="cta-text">
+        <div class="lead">create your host profile <span class="arrow">→</span></div>
+        <div class="url">arivela.co</div>
+      </div>
+      <div class="qr-block">
+        <div class="qr-card">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#FFFFFF" d="M2 2.5h7m2 0h5m2 0h1m1 0h7M2 3.5h1m5 0h1m3 0h2m1 0h4m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h5m2 0h1m2 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h2m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m1 0h1m1 0h3m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m1 0h2m1 0h1m2 0h1M2 10.5h1m1 0h5m4 0h2m1 0h1m3 0h5M2 11.5h2m2 0h1m2 0h1m3 0h1m5 0h1m1 0h1m3 0h1M2 12.5h1m1 0h1m1 0h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h1m1 0h2M2 13.5h1m11 0h1m1 0h2m8 0h1M6 14.5h7m4 0h1m1 0h2m1 0h1m1 0h3M2 15.5h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h1M2 16.5h1m4 0h6m2 0h3m3 0h3m1 0h2M2 17.5h1m2 0h3m1 0h1m2 0h1m1 0h2m1 0h6m3 0h1M2 18.5h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h5m1 0h1M10 19.5h2m5 0h2m3 0h2M2 20.5h7m2 0h4m3 0h1m1 0h1m1 0h1m1 0h3M2 21.5h1m5 0h1m1 0h1m1 0h2m2 0h1m1 0h1m3 0h2M2 22.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h6m1 0h1m1 0h1M2 23.5h1m1 0h3m1 0h1m1 0h2m2 0h3m2 0h2m1 0h5M2 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m2 0h1m3 0h2m1 0h1M2 25.5h1m5 0h1m5 0h2m1 0h7m2 0h1M2 26.5h7m1 0h1m3 0h1m1 0h1m4 0h6"/></svg>
+        </div>
+        <div class="qr-cap">arivela.co</div>
+      </div>
+    </div>
+
+    <!-- 6. Footer cities -->
+    <div class="footer">
+      <span class="line"></span>
+      <span class="cities">Rishikesh · Ubud · London · Berlin · Tulum</span>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

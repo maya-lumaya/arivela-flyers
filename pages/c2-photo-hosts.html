@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ARIVELA — Hosts</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root{
+    --cream:#F9F6EF; --white:#FFFFFF;
+    --ink:#1D1D21; --sec:#5C5C5C; --muted:#8C8C8C; --hair:#E8E4DC;
+    --olive:#6B6E45; --olive-deep:#4F5232; --olive-tint:#F5F6F0; --olive-ink:#12130C;
+    --orange:#C8702A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#d6d6cc;}
+  .page{
+    position:relative;
+    width:1748px;height:2480px;
+    background:
+      radial-gradient(1100px 850px at 12% 12%, rgba(107,110,69,0.08), transparent 60%),
+      linear-gradient(180deg,#FAF9F3 0%, #F9F6EF 48%, #F4F4EC 100%);
+    overflow:hidden;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  .frame{
+    position:absolute; inset:118px;
+    width:calc(1748px - 236px); height:calc(2480px - 236px);
+    display:flex; flex-direction:column;
+  }
+
+  /* ---------- 1 · MASTHEAD ---------- */
+  .masthead{display:flex;flex-direction:column;align-items:flex-start;}
+  .wordmark{
+    font-family:'Inter',sans-serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.4em;
+    font-size:40px;color:var(--ink);line-height:1;padding-left:0.4em;
+  }
+  .accent-rule{width:44px;height:2px;background:var(--olive);margin-top:18px;}
+  .eyebrow{
+    margin-top:24px;
+    font-family:'Inter',sans-serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.3em;
+    font-size:23px;color:var(--muted);
+  }
+
+  /* ---------- 2 · HERO ---------- */
+  .hero{margin-top:50px;}
+  .hero h1{
+    font-family:'Lora',serif;font-style:italic;font-weight:500;
+    font-size:90px;line-height:1.05;color:var(--ink);
+    letter-spacing:-0.01em;max-width:1220px;
+  }
+  .hero .descender{
+    margin-top:20px;
+    font-family:'Lora',serif;font-style:normal;font-weight:500;
+    font-size:40px;color:var(--olive-deep);
+  }
+
+  /* ---------- 3 · IMAGE ZONE (quiet, but with presence) ---------- */
+  .photo-zone{margin-top:46px;}
+  .photo-frame{
+    position:relative;width:100%;height:470px;border-radius:8px;
+    border:1px solid var(--hair);
+    background:linear-gradient(135deg, var(--olive-tint) 0%, #F7F7F1 58%, #FBFAF4 100%);
+    overflow:hidden;display:flex;
+  }
+  .photo-frame::after{content:"";position:absolute;inset:18px;border:1px solid rgba(232,228,220,0.7);border-radius:5px;pointer-events:none;}
+  .frame-corner{position:absolute;width:34px;height:34px;border:1.5px solid rgba(107,110,69,0.5);}
+  .fc-tl{top:28px;left:28px;border-right:none;border-bottom:none;}
+  .fc-br{bottom:28px;right:28px;border-left:none;border-top:none;}
+  .photo-meta{position:relative;z-index:2;margin:auto auto 0 0;padding:48px 56px;max-width:1080px;}
+  .photo-tag{
+    display:inline-flex;align-items:center;gap:14px;
+    font-family:'Inter',sans-serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.24em;font-size:23px;
+    color:var(--olive-deep);margin-bottom:22px;
+  }
+  .photo-tag .glyph{font-size:28px;line-height:1;}
+  .photo-dir{font-family:'Inter',sans-serif;font-weight:400;font-size:26px;line-height:1.52;color:var(--sec);}
+  .photo-freepik{margin-top:22px;font-family:'Inter',sans-serif;font-weight:400;font-size:23px;line-height:1.58;color:var(--muted);}
+  .photo-freepik b{font-weight:600;color:var(--sec);letter-spacing:0.04em;}
+
+  /* ---------- 4 · VALUE BLOCK · FOUR LINES (fills the column) ---------- */
+  .props{margin-top:auto;margin-bottom:auto;display:flex;flex-direction:column;}
+  .prop{
+    display:flex;gap:34px;align-items:flex-start;
+    padding:34px 0;
+    border-top:1px solid var(--hair);
+  }
+  .prop:first-child{border-top:none;padding-top:18px;}
+  .prop .num{
+    flex:0 0 auto;
+    font-family:'Lora',serif;font-style:italic;font-weight:500;
+    font-size:46px;line-height:1;color:var(--olive);
+    width:60px;padding-top:4px;
+  }
+  .prop .body .title{
+    font-family:'Lora',serif;font-weight:500;font-size:40px;line-height:1.22;color:var(--ink);
+  }
+  .prop .body .sub{
+    margin-top:12px;
+    font-family:'Inter',sans-serif;font-weight:400;font-size:27px;line-height:1.5;color:var(--sec);max-width:1160px;
+  }
+  .soon-tag{
+    display:inline-block;vertical-align:middle;margin-left:18px;
+    font-family:'Inter',sans-serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.26em;font-size:19px;
+    color:var(--olive-deep);
+    border:1px solid var(--olive);border-radius:999px;
+    padding:6px 16px;
+    position:relative;top:-5px;
+  }
+
+  /* ---------- 5 · CTA + QR (anchored plate, olive twin of the front) ---------- */
+  .cta{
+    display:flex;align-items:center;justify-content:space-between;gap:48px;
+    background:linear-gradient(135deg, var(--olive-tint) 0%, #F8F8F2 100%);
+    border:1px solid var(--hair);
+    border-left:3px solid var(--olive);
+    border-radius:12px;
+    padding:48px 56px;
+  }
+  .cta-text .cta-line{
+    font-family:'Lora',serif;font-style:italic;font-weight:500;
+    font-size:52px;line-height:1.12;color:var(--olive-deep);
+  }
+  .cta-text .cta-line .arrow{font-family:'Inter',sans-serif;font-style:normal;font-weight:500;}
+  .cta-text .cta-url{
+    margin-top:16px;
+    font-family:'Inter',sans-serif;font-weight:700;letter-spacing:0.02em;font-size:40px;color:var(--ink);
+  }
+  .qr-wrap{
+    flex:0 0 auto;
+    display:flex;flex-direction:column;align-items:center;gap:12px;
+    background:var(--white);border:1px solid var(--hair);border-radius:10px;padding:20px;
+  }
+  .qr-wrap svg{width:176px;height:176px;display:block;}
+  .qr-cap{font-family:'Inter',sans-serif;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;font-size:18px;color:var(--muted);}
+
+  /* ---------- 6 · FOOTER · CITIES ---------- */
+  .footer{margin-top:46px;border-top:1px solid var(--hair);padding-top:28px;}
+  .footer .lede{font-family:'Lora',serif;font-style:italic;font-weight:400;font-size:28px;color:var(--sec);}
+  .footer .cities{
+    margin-top:14px;
+    font-family:'Inter',sans-serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.28em;font-size:27px;color:var(--ink);
+    display:flex;flex-wrap:wrap;align-items:center;gap:0 18px;
+  }
+  .footer .cities .dot{color:var(--olive);font-weight:400;}
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="frame">
+
+      <!-- 1 · MASTHEAD -->
+      <header class="masthead">
+        <div class="wordmark">ARIVELA</div>
+        <div class="accent-rule"></div>
+        <div class="eyebrow">For&nbsp;Teachers&nbsp;·&nbsp;Facilitators&nbsp;·&nbsp;Studios&nbsp;·&nbsp;Schools</div>
+      </header>
+
+      <!-- 2 · HERO -->
+      <section class="hero">
+        <h1>be found by the people<br>who’d love what you do.</h1>
+        <div class="descender">then we leave you alone to teach.</div>
+      </section>
+
+      <!-- 3 · IMAGE ZONE -->
+      <section class="photo-zone">
+        <div class="photo-frame">
+          <span class="frame-corner fc-tl"></span>
+          <span class="frame-corner fc-br"></span>
+          <div class="photo-meta">
+            <div class="photo-tag"><span class="glyph">◳</span>Photo · place for a licensed image</div>
+            <div class="photo-dir">
+              A quieter, intimate frame that says craft, not charisma — a teacher’s hands
+              demonstrating, or a facilitator setting up a calm room, observed from the side.
+              Grounded, olive-leaning grade; natural light, warm neutrals. Focus on competence
+              and presence, not face-to-camera. Real people, room left beside it for the lines.
+            </div>
+            <div class="photo-freepik">
+              <b>Freepik —</b> “yoga teacher hands demonstrating posture close up natural light” ·
+              “facilitator preparing calm studio space candid documentary” ·
+              “experienced instructor teaching small group warm neutral tones”
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 · VALUE BLOCK · FOUR LINES -->
+      <section class="props">
+        <div class="prop">
+          <div class="num">i</div>
+          <div class="body">
+            <div class="title">more guests for your events, retreats &amp; trainings.</div>
+            <div class="sub">reach an international community living across four countries, and growing.</div>
+          </div>
+        </div>
+        <div class="prop">
+          <div class="num">ii</div>
+          <div class="body">
+            <div class="title">create your profile — with your education, training and lineage.</div>
+            <div class="sub">your credibility is your story. the years you studied, where, and with whom.</div>
+          </div>
+        </div>
+        <div class="prop">
+          <div class="num">iii</div>
+          <div class="body">
+            <div class="title">add your places, and link the teachers who hold space there.</div>
+            <div class="sub">studios, retreat centers, the rooms you actually teach in — connected to their people.</div>
+          </div>
+        </div>
+        <div class="prop">
+          <div class="num">iv</div>
+          <div class="body">
+            <div class="title">list your online offerings.<span class="soon-tag">Soon</span></div>
+            <div class="sub">a little more is on the way — when it’s ready, your online sessions will live here too.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 · CTA + QR -->
+      <section class="cta">
+        <div class="cta-text">
+          <div class="cta-line">create your host profile <span class="arrow">→</span></div>
+          <div class="cta-url">arivela.co</div>
+        </div>
+        <div class="qr-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1D1D21" d="M2 2.5h7m2 0h5m2 0h1m1 0h7M2 3.5h1m5 0h1m3 0h2m1 0h4m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h5m2 0h1m2 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h2m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m1 0h1m1 0h3m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m1 0h2m1 0h1m2 0h1M2 10.5h1m1 0h5m4 0h2m1 0h1m3 0h5M2 11.5h2m2 0h1m2 0h1m3 0h1m5 0h1m1 0h1m3 0h1M2 12.5h1m1 0h1m1 0h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h1m1 0h2M2 13.5h1m11 0h1m1 0h2m8 0h1M6 14.5h7m4 0h1m1 0h2m1 0h1m1 0h3M2 15.5h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h1M2 16.5h1m4 0h6m2 0h3m3 0h3m1 0h2M2 17.5h1m2 0h3m1 0h1m2 0h1m1 0h2m1 0h6m3 0h1M2 18.5h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h5m1 0h1M10 19.5h2m5 0h2m3 0h2M2 20.5h7m2 0h4m3 0h1m1 0h1m1 0h1m1 0h3M2 21.5h1m5 0h1m1 0h1m1 0h2m2 0h1m1 0h1m3 0h2M2 22.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h6m1 0h1m1 0h1M2 23.5h1m1 0h3m1 0h1m1 0h2m2 0h3m2 0h2m1 0h5M2 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m2 0h1m3 0h2m1 0h1M2 25.5h1m5 0h1m5 0h2m1 0h7m2 0h1M2 26.5h7m1 0h1m3 0h1m1 0h1m4 0h6"/></svg>
+          <div class="qr-cap">scan to begin</div>
+        </div>
+      </section>
+
+      <!-- 6 · FOOTER · CITIES -->
+      <footer class="footer">
+        <div class="lede">one community, lived across four countries —</div>
+        <div class="cities">
+          <span>Rishikesh</span><span class="dot">·</span>
+          <span>Ubud</span><span class="dot">·</span>
+          <span>London</span><span class="dot">·</span>
+          <span>Berlin</span><span class="dot">·</span>
+          <span>Tulum</span>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARIVELA — A5 Flyer Concepts</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --cream:#F9F6EF; --warm-cream:#FFF6E9; --white:#FFFFFF;
+  --ink:#1D1D21; --sec:#5C5C5C; --muted:#8C8C8C; --hair:#E8E4DC;
+  --orange:#C8702A; --orange-deep:#A85A1E; --orange-tint:#FAF3EA;
+  --olive:#6B6E45; --olive-tint:#F5F6F0;
+}
+*{box-sizing:border-box;}
+html{ -webkit-text-size-adjust:100%; }
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
+  font-weight:400;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;}
+
+/* ---------- Masthead ---------- */
+.shell{ max-width:1180px; margin:0 auto; padding:0 32px; }
+.masthead{ padding:84px 0 40px; text-align:center; }
+.wordmark{
+  font-family:'Inter',sans-serif; font-weight:600; text-transform:uppercase;
+  letter-spacing:0.4em; font-size:30px; color:var(--ink); margin:0;
+  padding-left:0.4em; /* optical recenter of tracking */
+}
+.accent-rule{ width:44px; height:2px; background:var(--orange); margin:18px auto 26px; border:0; }
+.masthead .kicker{
+  font-weight:600; text-transform:uppercase; letter-spacing:0.22em;
+  font-size:12px; color:var(--orange); margin:0 0 18px;
+}
+.masthead h1{
+  font-family:'Lora',serif; font-style:italic; font-weight:500;
+  font-size:clamp(30px,4.4vw,46px); line-height:1.18; color:var(--ink);
+  margin:0 auto; max-width:780px;
+}
+.masthead .lede{
+  font-size:16px; color:var(--sec); max-width:660px; margin:20px auto 0;
+}
+.masthead .meta{
+  font-size:12.5px; color:var(--muted); margin:24px 0 0;
+  text-transform:uppercase; letter-spacing:0.14em;
+}
+
+.divider{ height:1px; background:var(--hair); border:0; margin:8px 0 0; }
+
+/* ---------- Concept block ---------- */
+.concept{ padding:64px 0 12px; }
+.concept-head{
+  display:flex; align-items:baseline; gap:18px; flex-wrap:wrap;
+  padding-bottom:8px;
+}
+.concept-num{
+  font-family:'Lora',serif; font-style:italic; font-weight:500;
+  font-size:30px; color:var(--orange); line-height:1; white-space:nowrap;
+}
+.concept-name{
+  font-family:'Lora',serif; font-weight:500; font-size:30px; color:var(--ink);
+  margin:0; line-height:1.1;
+}
+.concept-doc{
+  margin-left:auto; font-size:13px; font-weight:500; color:var(--orange-deep);
+  text-decoration:none; border-bottom:1px solid rgba(168,90,30,.35);
+  padding-bottom:2px; white-space:nowrap;
+}
+.concept-doc:hover{ border-bottom-color:var(--orange-deep); }
+.territory{
+  font-size:15.5px; color:var(--sec); max-width:880px; margin:14px 0 4px;
+}
+.lines{
+  display:flex; gap:28px; flex-wrap:wrap; margin:18px 0 4px;
+  font-size:14.5px;
+}
+.line-card{
+  flex:1 1 320px; background:var(--white); border:1px solid var(--hair);
+  border-radius:10px; padding:16px 20px;
+}
+.line-card .tag{
+  font-weight:600; text-transform:uppercase; letter-spacing:0.16em;
+  font-size:11px; margin:0 0 6px;
+}
+.line-card.guests .tag{ color:var(--orange); }
+.line-card.hosts .tag{ color:var(--olive); }
+.line-card .q{ font-family:'Lora',serif; font-style:italic; color:var(--ink); margin:0; line-height:1.4; }
+
+/* ---------- 2x2 grid ---------- */
+.grid{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:34px 34px;
+  margin:34px 0 8px;
+}
+@media (max-width:720px){ .grid{ grid-template-columns:1fr; } }
+
+.cell{
+  background:var(--white); border:1px solid var(--hair); border-radius:12px;
+  overflow:hidden; transition:box-shadow .18s ease, transform .18s ease;
+}
+.cell:hover{ box-shadow:0 10px 30px rgba(29,29,33,.08); transform:translateY(-2px); }
+.cell a.frame{
+  display:block; text-decoration:none; background:var(--warm-cream);
+  padding:22px; line-height:0;
+}
+.cell.olive a.frame{ background:var(--olive-tint); }
+.cell img{
+  width:100%; height:auto; display:block;
+  border:1px solid var(--hair); border-radius:6px;
+  background:var(--cream);
+  /* A5 portrait ratio preserved by intrinsic dims; max keeps thumbs readable */
+}
+.cap{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:14px 20px 16px; line-height:1.4;
+}
+.cap .label{ display:flex; flex-direction:column; gap:2px; }
+.cap .label .t{
+  font-weight:600; font-size:14px; color:var(--ink);
+  text-transform:capitalize;
+}
+.cap .label .s{
+  font-size:11.5px; color:var(--muted);
+  text-transform:uppercase; letter-spacing:0.13em;
+}
+.chip{
+  font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em;
+  padding:4px 9px; border-radius:999px; white-space:nowrap;
+}
+.chip.guests{ color:var(--orange-deep); background:var(--orange-tint); border:1px solid #ecd8c2; }
+.chip.hosts{ color:var(--olive); background:var(--olive-tint); border:1px solid #dfe1d2; }
+.cap .src{
+  font-size:12px; font-weight:500; color:var(--sec); text-decoration:none;
+  border-bottom:1px solid var(--hair); padding-bottom:1px; white-space:nowrap;
+}
+.cap .src:hover{ color:var(--ink); border-bottom-color:var(--muted); }
+
+/* ---------- Footer ---------- */
+.foot{
+  margin:80px 0 0; padding:40px 0 80px; border-top:1px solid var(--hair);
+  text-align:center; color:var(--muted); font-size:13px;
+}
+.foot .cities{
+  font-family:'Lora',serif; font-size:15px; color:var(--sec);
+  letter-spacing:0.04em; margin:0 0 14px;
+}
+.foot .links a{
+  color:var(--orange-deep); text-decoration:none; margin:0 10px;
+  border-bottom:1px solid rgba(168,90,30,.3); padding-bottom:1px;
+}
+.foot .links a:hover{ border-bottom-color:var(--orange-deep); }
+</style>
+</head>
+<body>
+
+<header class="masthead shell">
+  <p class="wordmark">ARIVELA</p>
+  <hr class="accent-rule">
+  <p class="kicker">A5 flyer rebrand · concept gallery</p>
+  <h1>Three creative concepts, each in a photo and a duotone treatment — guests on the front, hosts on the back.</h1>
+  <p class="lede">A two-sided printed A5 flyer for ARIVELA — the marketplace connecting conscious-living hosts with the guests who attend their events, retreats and trainings, across one community living in four countries.</p>
+  <p class="meta">Rishikesh · Ubud · London · Berlin · Tulum</p>
+</header>
+
+<div class="shell"><hr class="divider"></div>
+
+<main class="shell">
+
+  <!-- ============ CONCEPT 1 ============ -->
+  <section class="concept">
+    <div class="concept-head">
+      <span class="concept-num">01</span>
+      <h2 class="concept-name">The Worldwide Circle</h2>
+      <a class="concept-doc" href="concepts/concept-1.md">read concept-1.md →</a>
+    </div>
+    <p class="territory">One community, lived across the world. The hero is the circle itself — an international community already living in five cities and four countries, and growing. Place-led, quietly emotional, expansive.</p>
+    <div class="lines">
+      <div class="line-card guests">
+        <p class="tag">Guests · front</p>
+        <p class="q">the experiences that matter, shared by a community.</p>
+      </div>
+      <div class="line-card hosts">
+        <p class="tag">Hosts · back</p>
+        <p class="q">be found by the people already moving between these places.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <article class="cell">
+        <a class="frame" href="pages/c1-photo-guests.html"><img src="renders/c1-photo-guests.png" alt="Concept 1, photo treatment, guests side"></a>
+        <div class="cap">
+          <span class="label"><span class="t">Photo · guests</span><span class="s">front · empty frames + shotlist</span></span>
+          <span class="chip guests">guests</span>
+          <a class="src" href="pages/c1-photo-guests.html">html</a>
+        </div>
+      </article>
+      <article class="cell">
+        <a class="frame" href="pages/c1-photo-hosts.html"><img src="renders/c1-photo-hosts.png" alt="Concept 1, photo treatment, hosts side"></a>
+        <div class="cap">
+          <span class="label"><span class="t">Photo · hosts</span><span class="s">back · empty frames + shotlist</span></span>
+          <span class="chip hosts">hosts</span>
+          <a class="src" href="pages/c1-photo-hosts.html">html</a>
+        </div>
+      </article>
+      <article class="cell olive">
+        <a class="frame" href="pages/c1-duotone-guests.html"><img src="renders/c1-duotone-guests.png" alt="Concept 1, duotone treatment, guests side"></a>
+        <div class="cap">
+          <span class="label"><span class="t">Duotone · guests</span><span class="s">front · inline SVG illustration</span></span>
+          <span class="chip guests">guests</span>
+          <a class="src" href="pages/c1-duotone-guests.html">html</a>
+        </div>
+      </article>
+      <article class="cell olive">
+        <a class="frame" href="pages/c1-duotone-hosts.html"><img src="renders/c1-duotone-hosts.png" alt="Concept 1, duotone treatment, hosts side"></a>
+        <div class="cap">
+          <span class="label"><span class="t">Duotone · hosts</span><span class="s">back · inline SVG illustration</span></span>
+          <span class="chip hosts">hosts</span>
+          <a class="src" href="pages/c1-duotone-hosts.html">html</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============ CONCEPT 2 ============ -->
+  <section class="concept">
+    <div class="concept-head">
+      <span class="concept-num">02</span>
+      <h2 class="concept-name">People You Can Trust</h2>
+      <a class="concept-doc" href="concepts/concept-2.md">read concept-2.md →</a>
+    </div>
+    <p class="territory">Trust shown, not claimed. The calm opposite of glossy wellness theatre — a fine-magazine-cover feel where type leads and negative space does the talking. The worldwide circle is a quiet credibility signal, never the loud hero.</p>
+    <div class="lines">
+      <div class="line-card guests">
+        <p class="tag">Guests · front</p>
+        <p class="q">the ones who teach this have actually lived it.</p>
+      </div>
+      <div class="line-card hosts">
+        <p class="tag">Hosts · back</p>
+        <p class="q">be found by the people who'd love what you do.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <article class="cell">
+        <a class="frame" href="pages/c2-photo-guests.html"><img src="renders/c2-photo-guests.png" alt="Concept 2, photo treatment, guests side"></a>
+        <div class="cap">
+          <span class="label"><span class="t">Photo · guests</span><span class="s">front · empty frames + shotlist</span></span>
+          <span class="chip guests">guests</span>
+          <a class="src" href="pages/c2-photo-guests.html">html</a>
+        </div>
+      </article>
+      <article class="cell">
+        <a class="frame" href="pages/c2-photo-hosts.html"><img src="renders/c2-photo-hosts.png" alt="Concept 2, photo treatment, hosts side"></a>
+        <div class="cap">
+          <span class="label"><span class="t">Photo · hosts</span><span class="s">back · empty frames + shotlist</span></span>
+          <span class="chip hosts">hosts</span>
+          <a class="src" href="pages/c2-photo-hosts.html">html</a>
+        </div>
+      </article>
+      <article class="cell olive">
+        <a class="frame" href="pages/c2-duotone-guests.html"><img src="renders/c2-duotone-guests.png" alt="Concept 2, duotone treatment, guests side"></a>
+        <div class="cap">
+          <span class="label"><span class="t">Duotone · guests</span><span class="s">front · inline SVG illustration</span></span>
+          <span class="chip guests">guests</span>
+          <a class="src" href="pages/c2-duotone-guests.html">html</a>
+        </div>
+      </article>
+      <article class="cell olive">
+        <a class="frame" href="pages/c2-duotone-hosts.html"><img src="renders/c2-duotone-hosts.png" alt="Concept 2, duotone treatment, hosts side"></a>
+        <div class="cap">
+          <span class="label"><span class="t">Duotone · hosts</span><span class="s">back · inline SVG illustration</span></span>
+          <span class="chip hosts">hosts</span>
+          <a class="src" href="pages/c2-duotone-hosts.html">html</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============ CONCEPT 3 ============ -->
+  <section class="concept">
+    <div class="concept-head">
+      <span class="concept-num">03</span>
+      <h2 class="concept-name">Your Practice Has a Home</h2>
+      <a class="concept-doc" href="concepts/concept-3.md">read concept-3.md →</a>
+    </div>
+    <p class="territory">ARIVELA isn't a listing wall — it's a home for a practice. Structure carries the meaning: a gentle stepped rhythm of cards makes the host toolkit and the practitioner arc legible at a glance. Grounded, generous, quietly capable.</p>
+    <div class="lines">
+      <div class="line-card guests">
+        <p class="tag">Guests · front</p>
+        <p class="q">your practice has a home</p>
+      </div>
+      <div class="line-card hosts">
+        <p class="tag">Hosts · back</p>
+        <p class="q">your profile, your places, your teachers — one home.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <article class="cell">
+        <a class="frame" href="pages/c3-photo-guests.html"><img src="renders/c3-photo-guests.png" alt="Concept 3, photo treatment, guests side"></a>
+        <div class="cap">
+          <span class="label"><span class="t">Photo · guests</span><span class="s">front · empty frames + shotlist</span></span>
+          <span class="chip guests">guests</span>
+          <a class="src" href="pages/c3-photo-guests.html">html</a>
+        </div>
+      </article>
+      <article class="cell">
+        <a class="frame" href="pages/c3-photo-hosts.html"><img src="renders/c3-photo-hosts.png" alt="Concept 3, photo treatment, hosts side"></a>
+        <div class="cap">
+          <span class="label"><span class="t">Photo · hosts</span><span class="s">back · empty frames + shotlist</span></span>
+          <span class="chip hosts">hosts</span>
+          <a class="src" href="pages/c3-photo-hosts.html">html</a>
+        </div>
+      </article>
+      <article class="cell olive">
+        <a class="frame" href="pages/c3-duotone-guests.html"><img src="renders/c3-duotone-guests.png" alt="Concept 3, duotone treatment, guests side"></a>
+        <div class="cap">
+          <span class="label"><span class="t">Duotone · guests</span><span class="s">front · inline SVG illustration</span></span>
+          <span class="chip guests">guests</span>
+          <a class="src" href="pages/c3-duotone-guests.html">html</a>
+        </div>
+      </article>
+      <article class="cell olive">
+        <a class="frame" href="pages/c3-duotone-hosts.html"><img src="renders/c3-duotone-hosts.png" alt="Concept 3, duotone treatment, hosts side"></a>
+        <div class="cap">
+          <span class="label"><span class="t">Duotone · hosts</span><span class="s">back · inline SVG illustration</span></span>
+          <span class="chip hosts">hosts</span>
+          <a class="src" href="pages/c3-duotone-hosts.html">html</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot shell">
+  <p class="cities">Rishikesh · Ubud · London · Berlin · Tulum</p>
+  <p>Each flyer is 1748 × 2480 px (A5 @ 300 dpi). QR codes encode arivela.co. Self-contained, editable HTML/CSS.</p>
+  <p class="links">
+    <a href="README.md">README</a>
+    <a href="freepik-shotlist.md">Freepik shotlist</a>
+    <a href="BRAND.md">brand brief</a>
+  </p>
+</footer>
+
+</body>
+</html>
