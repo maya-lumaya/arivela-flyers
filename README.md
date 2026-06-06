@@ -8,8 +8,8 @@ ARIVELA is a clean-slate rebrand of the former *Lumaya* (briefly *Viluma*); the 
 
 **FRONT = guests** (demand) · **BACK = hosts** (supply).
 
-This deliverable is **three distinct creative concepts**, each rendered in **two visual
-treatments** — so twelve flyer pages in total:
+This deliverable is **four distinct creative concepts**, each rendered in **two visual
+treatments** — so sixteen flyer pages in total:
 
 - **photo** — a photography-led layout with **empty, styled photo frames** that print their own
   art direction + a Freepik shotlist inside them. No stand-in images ship; the client drops
@@ -22,7 +22,7 @@ its PNG render, caption and a link to the source HTML).
 
 ---
 
-## The three concepts (one line each)
+## The four concepts (one line each)
 
 1. **The Worldwide Circle** — one community, lived across the world; the hero is the circle of
    five cities itself. *Guests: the experiences that matter, shared by a community. · Hosts: be
@@ -33,6 +33,10 @@ its PNG render, caption and a link to the source HTML).
 3. **Your Practice Has a Home** — ARIVELA as a home for a practice, the host toolkit made tangible
    through a calm stepped-card rhythm. *Guests: your practice has a home · Hosts: your profile,
    your places, your teachers — one home.*
+4. **Off the Center** — the same brand hung off-center; a deliberately asymmetric layout where type
+   ranges hard against one edge and the five areas drop diagonally down a margin rail (right on the
+   front, left on the back), with big quiet negative space opposite. *Guests: find experiences that
+   truly matter — wherever you are. · Hosts: be found — then left to teach.*
 
 ---
 
@@ -48,7 +52,8 @@ flyers-arivela-rebrand/
 ├── concepts/
 │   ├── concept-1.md        ← "The Worldwide Circle" — positioning, copy, layout, art direction
 │   ├── concept-2.md        ← "People You Can Trust"
-│   └── concept-3.md        ← "Your Practice Has a Home"
+│   ├── concept-3.md        ← "Your Practice Has a Home"
+│   └── concept-4.md        ← "Off the Center" (asymmetric / off-center layout)
 │
 ├── pages/                  ← the deliverable: 12 self-contained A5 HTML pages (1748×2480)
 │   ├── c1-photo-guests.html      c1-photo-hosts.html
@@ -56,10 +61,12 @@ flyers-arivela-rebrand/
 │   ├── c2-photo-guests.html      c2-photo-hosts.html
 │   ├── c2-duotone-guests.html    c2-duotone-hosts.html
 │   ├── c3-photo-guests.html      c3-photo-hosts.html
-│   └── c3-duotone-guests.html    c3-duotone-hosts.html
+│   ├── c3-duotone-guests.html    c3-duotone-hosts.html
+│   ├── c4-photo-guests.html      c4-photo-hosts.html
+│   └── c4-duotone-guests.html    c4-duotone-hosts.html
 │
 ├── renders/                ← PNG QA renders, one per page, same basenames as pages/
-│   └── c{1,2,3}-{photo,duotone}-{guests,hosts}.png
+│   └── c{1,2,3,4}-{photo,duotone}-{guests,hosts}.png
 │
 ├── assets/
 │   ├── qr-arivela-dark.svg    ← dark modules, for light backgrounds
@@ -82,7 +89,7 @@ cream-tinted boxes that print their own art direction and a Freepik cue. They ar
 design.
 
 1. Open **[`freepik-shotlist.md`](freepik-shotlist.md)** — it consolidates every photo slot across
-   all three concepts, organised by concept and by page/side, with the art-direction brief and the
+   all four concepts, organised by concept and by page/side, with the art-direction brief and the
    exact Freepik search phrases for each slot, as a checklist you can shop against.
 2. Search [freepik.com](https://www.freepik.com) with the supplied phrases, honouring the
    photography rules (real people not models, diverse bodies/ages, calm focus, natural light, warm

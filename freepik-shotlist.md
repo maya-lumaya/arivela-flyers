@@ -1,12 +1,12 @@
 # ARIVELA — Freepik Shotlist
 
-A shopping checklist for the **photo-treatment** flyers. Every photo slot across the three
+A shopping checklist for the **photo-treatment** flyers. Every photo slot across the four
 concepts is listed here, organised **by concept** and then **by page/side**, with its
 art-direction brief and the exact Freepik search phrases to search against. Tick a slot off once
 you've licensed an image for it.
 
 The duotone pages need **no photos** — their illustration is inline SVG. This list covers only the
-six `*-photo-*` pages (one guests/front + one hosts/back per concept).
+eight `*-photo-*` pages (one guests/front + one hosts/back per concept).
 
 ---
 
@@ -123,6 +123,45 @@ band so the stepped cards own the page.
 
 ---
 
+## Concept 4 — "Off the Center"
+
+The photo frame is **off-center and bleeds off the outer edge** (left on the front, right on the
+back); direct its **negative space toward the open field / axis side** so the headline and the
+margin city-rail never fight the image.
+
+### c4-photo-guests.html — FRONT (guests) · left-bleeding off-center frame
+
+- [ ] **Primary frame** (low-left, bleeds off the left edge; negative space falls right). One tall,
+  calm, atmospheric image — a single person or small pair in a warm, lived-in interior near a
+  window, off to one side, lots of air on the other. "Someone real, somewhere out there, that you
+  could belong with." Keep the right half quiet for the open field.
+  - `"person by window warm natural light negative space"`
+  - `"diverse people candid documentary warm tones minimal"`
+  - `"calm interior single figure soft daylight lots of space"`
+
+- [ ] **Optional inset** (tiny human note tucked into the open field) — two people in quiet
+  conversation after a session, side light, no eye-contact-to-camera.
+  - `"two people quiet conversation studio natural light"`
+  - `"yoga studio candid real people diverse unposed"`
+
+### c4-photo-hosts.html — BACK (hosts) · right-bleeding off-center frame
+
+- [ ] **Primary frame** (low-right, bleeds off the right edge; negative space falls left). A host in
+  their element, understated — teacher/facilitator in their own studio, retreat home or training
+  room, mid-ordinary-moment, not performing. Warm window light, honest wear, calm competence. Keep
+  the left portion quiet for the open field + value block.
+  - `"yoga teacher own studio natural light candid off center"`
+  - `"facilitator preparing space warm neutral documentary negative space"`
+  - `"wellness host real person calm not posed minimal interior"`
+
+- [ ] **Optional inset** (near the "add your places" prop, in the open left field) — a quiet detail
+  of a place: empty studio floor, mats rolled, a retreat porch; warm, lived-in, lots of air.
+  - `"empty yoga studio warm light minimal negative space"`
+  - `"retreat space interior natural light calm"`
+  - `"training room wooden floor soft daylight"`
+
+---
+
 ## At a glance — slot count
 
 | Concept | Front (guests) | Back (hosts) |
@@ -130,7 +169,8 @@ band so the stepped cards own the page.
 | 1 — The Worldwide Circle | 1 primary + 1 optional inset | 1 primary + 1 optional inset |
 | 2 — People You Can Trust | 1 focal | 1 focal |
 | 3 — Your Practice Has a Home | 1 focal + 1 optional inset | 1 calm band |
+| 4 — Off the Center | 1 primary + 1 optional inset | 1 primary + 1 optional inset |
 
-Required slots: **6** (one per photo page). Optional insets: **4**. After licensing, drop each
+Required slots: **8** (one per photo page). Optional insets: **5**. After licensing, drop each
 image into the matching frame in `pages/c{N}-photo-{side}.html` (see README → "How to swap in
 Freepik photos") and re-render with `render.mjs`.

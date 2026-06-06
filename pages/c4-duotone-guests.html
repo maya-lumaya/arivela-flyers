@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root{
+    --cream:#F9F6EF;
+    --warm-cream:#FFF6E9;
+    --light-tint:#FAF3EA;
+    --ink:#1D1D21;
+    --sec:#5C5C5C;
+    --meta:#8C8C8C;
+    --hair:#E8E4DC;
+    --orange:#C8702A;
+    --orange-deep:#A85A1E;
+    --olive:#6B6E45;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#ddd;}
+
+  .page{
+    position:relative;
+    width:1748px;
+    height:2480px;
+    background:var(--cream);
+    overflow:hidden;
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* full-bleed wash — warmth pools to the open RIGHT field, cream holds the left */
+  .wash{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(1500px 1500px at 92% 30%, rgba(200,112,42,0.085), rgba(200,112,42,0) 60%),
+      radial-gradient(1200px 1000px at 6% 84%, rgba(255,246,233,0.85), rgba(255,246,233,0) 58%),
+      linear-gradient(160deg, #FBF8F1 0%, var(--cream) 48%, #FBF7EF 100%);
+  }
+  .grain{position:absolute;inset:0;opacity:0.5;mix-blend-mode:multiply;pointer-events:none;}
+
+  /* off-center axis hint — a whisper-thin vertical rule at ~62% (NOT centred) */
+  .axis{
+    position:absolute;top:430px;bottom:360px;left:1085px;
+    width:1px;
+    background:linear-gradient(180deg, rgba(232,228,220,0) 0%, var(--hair) 18%, var(--hair) 80%, rgba(232,228,220,0) 100%);
+    opacity:0.7;
+  }
+
+  /* ===== MASTHEAD — top-left, flush to left safe-margin ===== */
+  .masthead{position:absolute;left:118px;top:132px;}
+  .wordmark{
+    font-family:'Inter';font-weight:600;font-size:46px;
+    letter-spacing:0.4em;text-transform:uppercase;color:var(--ink);
+    padding-left:0.4em;
+  }
+  .rule{width:46px;height:2px;background:var(--orange);margin:24px 0 0 4px;}
+  .eyebrow{
+    margin-top:30px;
+    font-family:'Inter';font-weight:600;font-size:24px;
+    letter-spacing:0.32em;text-transform:uppercase;color:var(--orange);
+  }
+
+  /* ===== HERO — ranged hard LEFT, open cream field falls right ===== */
+  .hero{position:absolute;left:118px;top:470px;max-width:1000px;}
+  .hero h1{
+    font-family:'Lora';font-style:italic;font-weight:500;
+    font-size:108px;line-height:1.06;letter-spacing:-0.015em;
+    color:var(--ink);
+  }
+  .hero h1 .soft{color:var(--orange-deep);}
+  .subhead{
+    margin-top:42px;
+    font-family:'Inter';font-weight:400;font-size:33px;line-height:1.5;
+    color:var(--sec);max-width:760px;
+  }
+
+  /* ===== AREA RAIL — descending staircase down the RIGHT safe-margin ===== */
+  .rail{position:absolute;right:118px;top:560px;bottom:300px;width:560px;}
+  .rail svg{width:100%;height:100%;display:block;overflow:visible;}
+
+  /* ===== PAYOFF — low-left, diagonally opposite the right rail ===== */
+  .payoff{position:absolute;left:118px;bottom:540px;max-width:920px;}
+  .payoff .hair{width:120px;height:2px;background:var(--orange);}
+  .payoff .support{
+    margin-top:34px;
+    font-family:'Lora';font-style:italic;font-weight:400;
+    font-size:38px;line-height:1.42;color:var(--ink);max-width:840px;
+  }
+  .payoff .spine{
+    margin-top:26px;
+    font-family:'Inter';font-weight:400;font-size:30px;line-height:1.5;color:var(--sec);max-width:920px;white-space:nowrap;
+  }
+  .payoff .spine b{color:var(--ink);font-weight:600;}
+
+  /* ===== CTA + QR — bottom-left, content side, on a clean cream field ===== */
+  .cta{position:absolute;left:118px;bottom:118px;display:flex;align-items:flex-end;gap:54px;}
+  .cta-text{
+    position:relative;
+    background:linear-gradient(90deg, rgba(249,246,239,0.96) 0%, rgba(249,246,239,0.96) 78%, rgba(249,246,239,0) 100%);
+    padding:8px 64px 12px 0;border-radius:6px;
+  }
+  .cta-text .lead{
+    font-family:'Inter';font-weight:600;font-size:23px;letter-spacing:0.16em;
+    text-transform:uppercase;color:var(--orange);
+  }
+  .cta-text .big{
+    margin-top:18px;
+    font-family:'Lora';font-style:italic;font-weight:500;font-size:56px;line-height:1.08;
+    color:var(--ink);
+  }
+  .cta-text .big .arrow{font-style:normal;color:var(--orange);}
+  .cta-text .url{
+    margin-top:24px;
+    font-family:'Inter';font-weight:600;font-size:34px;letter-spacing:0.04em;color:var(--ink);
+  }
+  .qr-card{
+    background:#fff;border:1px solid var(--hair);border-radius:14px;padding:20px;
+    display:flex;flex-direction:column;align-items:center;gap:12px;
+  }
+  .qr-card svg{width:172px;height:172px;display:block;}
+  .qr-card .scan{
+    font-family:'Inter';font-weight:500;font-size:18px;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--meta);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="wash"></div>
+  <svg class="grain" width="1748" height="2480" preserveAspectRatio="none">
+    <filter id="gr"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.045"/></feComponentTransfer></filter>
+    <rect width="100%" height="100%" filter="url(#gr)"/>
+  </svg>
+
+  <div class="axis"></div>
+
+  <!-- ====== DUOTONE ART: figure anchored MID-LEFT (clear of the CTA), breath unspools UP-RIGHT ====== -->
+  <!-- The figure is lifted out of the bottom-left CTA zone and seated mid-left,
+       clipped off the left bleed; one continuous orange line lifts up-and-right
+       across the open field into the place-rail. The whole bottom-left band is
+       kept clean cream for the payoff + CTA. -->
+  <svg style="position:absolute;left:0;top:0;width:1748px;height:2480px;" viewBox="0 0 1748 2480" fill="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="figFill" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0%" stop-color="#C8702A" stop-opacity="0.13"/>
+        <stop offset="100%" stop-color="#C8702A" stop-opacity="0.03"/>
+      </linearGradient>
+      <radialGradient id="figWash" cx="18%" cy="50%" r="58%">
+        <stop offset="0%" stop-color="#FAF3EA" stop-opacity="0.85"/>
+        <stop offset="100%" stop-color="#FAF3EA" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="grainArt" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" result="n"/>
+        <feColorMatrix in="n" type="saturate" values="0"/>
+        <feComponentTransfer><feFuncA type="linear" slope="0.035"/></feComponentTransfer>
+        <feComposite operator="in" in2="SourceGraphic"/>
+      </filter>
+    </defs>
+
+    <!-- faint warm wash pooling around the clipped figure block (mid-left) -->
+    <ellipse cx="140" cy="1180" rx="560" ry="520" fill="url(#figWash)"/>
+
+    <!-- abstract faceless figure: head + open breath-curve + teardrop body,
+         anchored MID-LEFT (y~1060-1620), clipped off the left bleed.
+         Sits firmly below the hero/subhead and well ABOVE the payoff band. -->
+    <g opacity="0.95">
+      <!-- soft tinted body mass behind the line (organic, off-page) -->
+      <path d="M-200 1660
+               C -240 1340, -150 1140, 90 1040
+               C 270 962, 440 980, 530 1100
+               C 602 1196, 582 1372, 510 1540
+               C 470 1628, 410 1690, 320 1660 Z"
+            fill="url(#figFill)"/>
+
+      <!-- ONE continuous breath line: rises from the figure's seed and sweeps
+           up-and-right through the OPEN mid-right field (between the subhead and the
+           rail), then lifts toward the Rishikesh node. Routed clear of the hero,
+           the subhead and the paysoff — pure open cream. -->
+      <path d="M312 1040
+               C 470 1020, 640 1080, 840 1010
+               C 1040 940, 1180 820, 1320 700
+               C 1420 616, 1480 520, 1520 420"
+            stroke="#C8702A" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.62"/>
+
+      <!-- figure open-arms curve -->
+      <path d="M50 1268 C 126 1150, 232 1112, 330 1112 C 428 1112, 466 1178, 466 1268"
+            stroke="#C8702A" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <!-- head (faceless) -->
+      <circle cx="290" cy="1082" r="44" fill="#C8702A"/>
+      <!-- teardrop body, clipped mid-left, ending well above the payoff -->
+      <path d="M158 1660 C 158 1390, 204 1268, 300 1268 C 396 1268, 442 1390, 442 1660 Z"
+            fill="#C8702A" opacity="0.9"/>
+      <!-- rising breath seed: head lifts and hands off to the breath line -->
+      <path d="M312 1040 C 288 1058, 290 1062, 290 1082"
+            stroke="#C8702A" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+      <!-- grain only over the figure block -->
+      <ellipse cx="240" cy="1360" rx="430" ry="410" fill="#C8702A" filter="url(#grainArt)" opacity="0.42"/>
+    </g>
+  </svg>
+
+  <!-- ====== AREA RAIL — five cities descending the right margin, off-center ====== -->
+  <div class="rail">
+    <svg viewBox="0 0 560 1620" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <!-- faint connecting hairline threading the descending nodes (scattered, not ruled) -->
+      <path d="M470 120 C 500 280, 430 360, 480 520 C 520 650, 430 740, 500 920 C 545 1060, 470 1180, 524 1420"
+            stroke="#C8702A" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.34"
+            stroke-dasharray="2 16"/>
+
+      <g font-family="Lora" letter-spacing="0.02em">
+        <!-- Rishikesh — highest, largest node, kerned slightly further out -->
+        <g>
+          <circle cx="470" cy="120" r="11" fill="#C8702A"/>
+          <circle cx="470" cy="120" r="22" fill="none" stroke="#C8702A" stroke-width="2" opacity="0.35"/>
+          <text x="446" y="130" text-anchor="end" font-size="40" fill="#1D1D21" font-weight="500">Rishikesh</text>
+        </g>
+        <!-- Ubud -->
+        <g>
+          <circle cx="480" cy="520" r="9" fill="#C8702A"/>
+          <text x="456" y="530" text-anchor="end" font-size="38" fill="#1D1D21">Ubud</text>
+        </g>
+        <!-- London — kerned a hair further toward the edge (scattered) -->
+        <g>
+          <circle cx="500" cy="740" r="9" fill="#C8702A"/>
+          <text x="476" y="750" text-anchor="end" font-size="38" fill="#1D1D21">London</text>
+        </g>
+        <!-- Berlin -->
+        <g>
+          <circle cx="488" cy="940" r="9" fill="#C8702A"/>
+          <text x="464" y="950" text-anchor="end" font-size="38" fill="#1D1D21">Berlin</text>
+        </g>
+        <!-- Tulum — lowest, sits in lower-right quadrant, rail flowing off-page -->
+        <g>
+          <circle cx="524" cy="1420" r="10" fill="#C8702A"/>
+          <text x="500" y="1430" text-anchor="end" font-size="40" fill="#1D1D21" font-weight="500">Tulum</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ====== MASTHEAD ====== -->
+  <div class="masthead">
+    <div class="wordmark">ARIVELA</div>
+    <div class="rule"></div>
+    <div class="eyebrow">From Rishikesh to Tulum</div>
+  </div>
+
+  <!-- ====== HERO — ranged hard left ====== -->
+  <div class="hero">
+    <h1><em>find experiences</em><br><em>that truly matter —</em><br><span class="soft"><em>wherever you are.</em></span></h1>
+    <p class="subhead">real events, retreats and trainings, held by people you can trust.</p>
+  </div>
+
+  <!-- ====== PAYOFF — low-left ====== -->
+  <div class="payoff">
+    <div class="hair"></div>
+    <p class="support">not a feed to scroll — a community to belong to, scattered across the world and close to home.</p>
+    <p class="spine">one community, living across <b>four countries</b>&nbsp;and&nbsp;growing.</p>
+  </div>
+
+  <!-- ====== CTA + QR — bottom-left ====== -->
+  <div class="cta">
+    <div class="cta-text">
+      <div class="lead">begin here</div>
+      <div class="big">discover what's near you <span class="arrow">→</span></div>
+      <div class="url">arivela.co</div>
+    </div>
+    <div class="qr-card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1D1D21" d="M2 2.5h7m2 0h5m2 0h1m1 0h7M2 3.5h1m5 0h1m3 0h2m1 0h4m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h5m2 0h1m2 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h2m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m1 0h1m1 0h3m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m1 0h2m1 0h1m2 0h1M2 10.5h1m1 0h5m4 0h2m1 0h1m3 0h5M2 11.5h2m2 0h1m2 0h1m3 0h1m5 0h1m1 0h1m3 0h1M2 12.5h1m1 0h1m1 0h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h1m1 0h2M2 13.5h1m11 0h1m1 0h2m8 0h1M6 14.5h7m4 0h1m1 0h2m1 0h1m1 0h3M2 15.5h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h1M2 16.5h1m4 0h6m2 0h3m3 0h3m1 0h2M2 17.5h1m2 0h3m1 0h1m2 0h1m1 0h2m1 0h6m3 0h1M2 18.5h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h5m1 0h1M10 19.5h2m5 0h2m3 0h2M2 20.5h7m2 0h4m3 0h1m1 0h1m1 0h1m1 0h3M2 21.5h1m5 0h1m1 0h1m1 0h2m2 0h1m1 0h1m3 0h2M2 22.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h6m1 0h1m1 0h1M2 23.5h1m1 0h3m1 0h1m1 0h2m2 0h3m2 0h2m1 0h5M2 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m2 0h1m3 0h2m1 0h1M2 25.5h1m5 0h1m5 0h2m1 0h7m2 0h1M2 26.5h7m1 0h1m3 0h1m1 0h1m4 0h6"/></svg>
+      <div class="scan">scan to explore</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
