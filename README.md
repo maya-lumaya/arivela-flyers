@@ -8,8 +8,8 @@ ARIVELA is a clean-slate rebrand of the former *Lumaya* (briefly *Viluma*); the 
 
 **FRONT = guests** (demand) · **BACK = hosts** (supply).
 
-This deliverable is **four distinct creative concepts**, each rendered in **two visual
-treatments** — so sixteen flyer pages in total:
+This deliverable is **five distinct creative concepts**, each rendered in **two visual
+treatments** — so twenty flyer pages in total:
 
 - **photo** — a photography-led layout with **empty, styled photo frames** that print their own
   art direction + a Freepik shotlist inside them. No stand-in images ship; the client drops
@@ -22,7 +22,7 @@ its PNG render, caption and a link to the source HTML).
 
 ---
 
-## The four concepts (one line each)
+## The five concepts (one line each)
 
 1. **The Worldwide Circle** — one community, lived across the world; the hero is the circle of
    five cities itself. *Guests: the experiences that matter, shared by a community. · Hosts: be
@@ -37,6 +37,11 @@ its PNG render, caption and a link to the source HTML).
    ranges hard against one edge and the five areas drop diagonally down a margin rail (right on the
    front, left on the back), with big quiet negative space opposite. *Guests: find experiences that
    truly matter — wherever you are. · Hosts: be found — then left to teach.*
+5. **You Were Never Meant to Practise Alone** — community is the hero, the people not the places;
+   geography is removed entirely and a single centred ring of human marks holds the page around an
+   open cream heart (room for one more). Front and back are the same gathering in two moods —
+   warm/orange for guests, grounded/olive for hosts. *Guests: you were never meant to practise
+   alone. · Hosts: there's a community already looking for what you hold.*
 
 ---
 
@@ -44,7 +49,7 @@ its PNG render, caption and a link to the source HTML).
 
 ```
 flyers-arivela-rebrand/
-├── index.html              ← on-brand gallery of all 12 pages (start here)
+├── index.html              ← on-brand gallery of all 20 pages (start here)
 ├── README.md               ← this file
 ├── freepik-shotlist.md     ← consolidated photo art-direction + Freepik search phrases
 ├── BRAND.md                ← the brief / single source of truth (canvas, palette, voice, naming)
@@ -53,9 +58,10 @@ flyers-arivela-rebrand/
 │   ├── concept-1.md        ← "The Worldwide Circle" — positioning, copy, layout, art direction
 │   ├── concept-2.md        ← "People You Can Trust"
 │   ├── concept-3.md        ← "Your Practice Has a Home"
-│   └── concept-4.md        ← "Off the Center" (asymmetric / off-center layout)
+│   ├── concept-4.md        ← "Off the Center" (asymmetric / off-center layout)
+│   └── concept-5.md        ← "You Were Never Meant to Practise Alone" (community-centred, no places)
 │
-├── pages/                  ← the deliverable: 12 self-contained A5 HTML pages (1748×2480)
+├── pages/                  ← the deliverable: 20 self-contained A5 HTML pages (1748×2480)
 │   ├── c1-photo-guests.html      c1-photo-hosts.html
 │   ├── c1-duotone-guests.html    c1-duotone-hosts.html
 │   ├── c2-photo-guests.html      c2-photo-hosts.html
@@ -63,10 +69,12 @@ flyers-arivela-rebrand/
 │   ├── c3-photo-guests.html      c3-photo-hosts.html
 │   ├── c3-duotone-guests.html    c3-duotone-hosts.html
 │   ├── c4-photo-guests.html      c4-photo-hosts.html
-│   └── c4-duotone-guests.html    c4-duotone-hosts.html
+│   ├── c4-duotone-guests.html    c4-duotone-hosts.html
+│   ├── c5-photo-guests.html      c5-photo-hosts.html
+│   └── c5-duotone-guests.html    c5-duotone-hosts.html
 │
 ├── renders/                ← PNG QA renders, one per page, same basenames as pages/
-│   └── c{1,2,3,4}-{photo,duotone}-{guests,hosts}.png
+│   └── c{1,2,3,4,5}-{photo,duotone}-{guests,hosts}.png
 │
 ├── assets/
 │   ├── qr-arivela-dark.svg    ← dark modules, for light backgrounds
@@ -89,7 +97,7 @@ cream-tinted boxes that print their own art direction and a Freepik cue. They ar
 design.
 
 1. Open **[`freepik-shotlist.md`](freepik-shotlist.md)** — it consolidates every photo slot across
-   all four concepts, organised by concept and by page/side, with the art-direction brief and the
+   all five concepts, organised by concept and by page/side, with the art-direction brief and the
    exact Freepik search phrases for each slot, as a checklist you can shop against.
 2. Search [freepik.com](https://www.freepik.com) with the supplied phrases, honouring the
    photography rules (real people not models, diverse bodies/ages, calm focus, natural light, warm

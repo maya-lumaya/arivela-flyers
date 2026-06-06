@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');</style>
+<style>
+  :root{
+    --cream:#F9F6EF; --cream-warm:#FFF6E9; --white:#FFFFFF;
+    --ink:#1D1D21; --ink2:#5C5C5C; --muted:#8C8C8C; --hair:#E8E4DC;
+    --orange:#C8702A; --orange-deep:#A85A1E; --orange-tint:#FAF3EA; --brown:#7A4A1E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#ddd;}
+  .page{
+    position:relative;
+    width:1748px;height:2480px;overflow:hidden;
+    background:
+      radial-gradient(125% 88% at 50% 41%, #FFF6E9 0%, #FBF5EA 40%, #F9F6EF 72%, #F5F0E5 100%);
+    font-family:'Inter',sans-serif;color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  .grain{position:absolute;inset:0;opacity:.05;mix-blend-mode:multiply;pointer-events:none;z-index:6;}
+  .vignette{position:absolute;inset:0;pointer-events:none;z-index:1;
+    background:radial-gradient(120% 120% at 50% 50%, rgba(0,0,0,0) 58%, rgba(63,41,14,.045) 100%);}
+
+  .safe{position:absolute;left:118px;right:118px;top:118px;bottom:118px;z-index:5;
+    display:flex;flex-direction:column;align-items:center;text-align:center;}
+
+  /* ---------- masthead ---------- */
+  .mast{margin-top:34px;display:flex;flex-direction:column;align-items:center;}
+  .wordmark{font-family:'Inter',sans-serif;font-weight:600;font-size:40px;letter-spacing:.4em;
+    text-indent:.4em;color:var(--ink);}
+  .mast-rule{width:44px;height:2px;background:var(--orange);margin-top:18px;}
+  .kicker{margin-top:28px;font-size:20px;font-weight:500;letter-spacing:.30em;text-indent:.30em;
+    color:var(--muted);text-transform:uppercase;}
+
+  /* the small art-direction kicker above the hero (matches photo side) */
+  .gather-kick{margin-top:40px;font-size:18px;font-weight:600;letter-spacing:.34em;text-indent:.34em;
+    color:var(--orange);text-transform:uppercase;}
+
+  /* ---------- hero ---------- */
+  .hero{margin-top:18px;font-family:'Lora',serif;font-style:italic;font-weight:500;
+    font-size:100px;line-height:1.05;letter-spacing:-.01em;color:var(--ink);}
+  .hero .warm{color:var(--orange);}
+
+  /* ---------- gathering motif ---------- */
+  .gathering{position:relative;width:980px;height:980px;margin-top:14px;
+    display:flex;align-items:center;justify-content:center;}
+  .gathering svg{display:block;width:100%;height:100%;overflow:visible;}
+
+  /* ---------- centred label below the gathering (community scale, no place) ---------- */
+  .scale-line{margin-top:14px;font-size:18px;font-weight:600;letter-spacing:.30em;text-indent:.30em;
+    color:var(--muted);text-transform:uppercase;}
+
+  /* ---------- value block ---------- */
+  .value{margin-top:36px;}
+  .subhead{font-family:'Lora',serif;font-style:italic;font-weight:400;font-size:46px;
+    line-height:1.3;color:var(--ink);max-width:1040px;}
+
+  /* ---------- CTA + QR ---------- */
+  .cta{margin-top:auto;display:flex;flex-direction:column;align-items:center;width:100%;}
+  .cta-row{display:flex;align-items:center;gap:38px;background:var(--orange-tint);
+    border:1px solid #ecd8c2;border-radius:18px;padding:30px 46px;}
+  .cta-text{display:flex;flex-direction:column;align-items:flex-start;text-align:left;}
+  .cta-link{font-family:'Lora',serif;font-style:italic;font-weight:500;font-size:48px;
+    color:var(--orange-deep);line-height:1.05;}
+  .cta-link .arrow{font-style:normal;font-weight:400;}
+  .cta-url{margin-top:12px;font-family:'Inter',sans-serif;font-weight:600;font-size:26px;
+    letter-spacing:.16em;text-indent:.16em;color:var(--ink);text-transform:lowercase;}
+  .cta-cap{margin-top:8px;font-size:14px;letter-spacing:.24em;text-indent:.24em;
+    color:var(--muted);text-transform:uppercase;font-weight:600;}
+  .qr-frame{background:var(--white);border:1px solid var(--hair);border-radius:12px;
+    padding:16px;display:flex;align-items:center;justify-content:center;}
+  .qr-frame svg{width:150px;height:150px;display:block;}
+
+  /* ---------- footer ---------- */
+  .footer{margin-top:36px;width:100%;display:flex;flex-direction:column;align-items:center;}
+  .foot-rule{width:100%;max-width:1120px;height:1px;background:var(--hair);}
+  .foot-line{margin-top:24px;font-family:'Lora',serif;font-style:italic;font-weight:400;
+    font-size:27px;letter-spacing:.04em;color:var(--muted);}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="vignette"></div>
+
+  <div class="safe">
+
+    <!-- 1 · masthead -->
+    <div class="mast">
+      <div class="wordmark">ARIVELA</div>
+      <div class="mast-rule"></div>
+      <div class="kicker">Events&nbsp;&middot;&nbsp;Retreats&nbsp;&middot;&nbsp;Trainings</div>
+    </div>
+
+    <!-- 2 · hero -->
+    <div class="gather-kick">The Gathering</div>
+    <h1 class="hero">you were never meant<br>to <span class="warm">practise alone.</span></h1>
+
+    <!-- 3 · the gathering : centred ring of faceless figures, two-tone, open cream heart -->
+    <div class="gathering">
+      <svg viewBox="0 0 980 980" role="img" aria-label="a circle of faceless people gathered around an open centre">
+        <defs>
+          <radialGradient id="g-heart" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFF8EE"/>
+            <stop offset="58%" stop-color="#FCF4E8"/>
+            <stop offset="100%" stop-color="#F4ECDD"/>
+          </radialGradient>
+          <!-- a single soft faceless body silhouette, reused & rotated around the ring -->
+          <g id="fig">
+            <circle cx="0" cy="-52" r="29"/>
+            <path d="M0,-20
+                     C 37,-20 54,7 54,47
+                     C 54,78 30,98 0,98
+                     C -30,98 -54,78 -54,47
+                     C -54,7 -37,-20 0,-20 Z"/>
+          </g>
+        </defs>
+
+        <!-- concentric ripples: community growing from the middle -->
+        <g fill="none" stroke="#C8702A" stroke-linecap="round">
+          <circle cx="490" cy="490" r="468" stroke-width="1.2" opacity="0.10"/>
+          <circle cx="490" cy="490" r="408" stroke-width="1.4" opacity="0.16"/>
+          <circle cx="490" cy="490" r="300" stroke-width="1.4" opacity="0.22"/>
+        </g>
+
+        <!-- the open cream heart -->
+        <circle cx="490" cy="490" r="170" fill="url(#g-heart)"/>
+        <circle cx="490" cy="490" r="170" fill="none" stroke="#C8702A" stroke-width="1.4" opacity="0.30"/>
+
+        <!-- the lighter "room for one more" figure, just stepping into the centre -->
+        <g transform="translate(490,498) scale(0.74)" fill="#C8702A" opacity="0.22">
+          <use href="#fig"/>
+        </g>
+
+        <!-- OUTER RING : 12 faceless figures, alternating orange / brown, facing the centre -->
+        <g>
+          <g transform="rotate(0 490 490)"   fill="#C8702A"><g transform="translate(490,142) scale(1.0)"><use href="#fig"/></g></g>
+          <g transform="rotate(30 490 490)"  fill="#7A4A1E"><g transform="translate(490,142) scale(1.0)"><use href="#fig"/></g></g>
+          <g transform="rotate(60 490 490)"  fill="#C8702A"><g transform="translate(490,142) scale(1.0)"><use href="#fig"/></g></g>
+          <g transform="rotate(90 490 490)"  fill="#7A4A1E"><g transform="translate(490,142) scale(1.0)"><use href="#fig"/></g></g>
+          <g transform="rotate(120 490 490)" fill="#C8702A"><g transform="translate(490,142) scale(1.0)"><use href="#fig"/></g></g>
+          <g transform="rotate(150 490 490)" fill="#7A4A1E"><g transform="translate(490,142) scale(1.0)"><use href="#fig"/></g></g>
+          <g transform="rotate(180 490 490)" fill="#C8702A"><g transform="translate(490,142) scale(1.0)"><use href="#fig"/></g></g>
+          <g transform="rotate(210 490 490)" fill="#7A4A1E"><g transform="translate(490,142) scale(1.0)"><use href="#fig"/></g></g>
+          <g transform="rotate(240 490 490)" fill="#C8702A"><g transform="translate(490,142) scale(1.0)"><use href="#fig"/></g></g>
+          <g transform="rotate(270 490 490)" fill="#7A4A1E"><g transform="translate(490,142) scale(1.0)"><use href="#fig"/></g></g>
+          <g transform="rotate(300 490 490)" fill="#C8702A"><g transform="translate(490,142) scale(1.0)"><use href="#fig"/></g></g>
+          <g transform="rotate(330 490 490)" fill="#7A4A1E"><g transform="translate(490,142) scale(1.0)"><use href="#fig"/></g></g>
+        </g>
+      </svg>
+    </div>
+
+    <!-- below the gathering : abstract scale cue, never a place -->
+    <div class="scale-line">one community, many practices.</div>
+
+    <!-- 4 · value block -->
+    <div class="value">
+      <p class="subhead">the experiences that matter most<br>are the ones you&nbsp;share.</p>
+    </div>
+
+    <!-- 5 · CTA + QR -->
+    <div class="cta">
+      <div class="cta-row">
+        <div class="qr-frame">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1D1D21" d="M2 2.5h7m2 0h5m2 0h1m1 0h7M2 3.5h1m5 0h1m3 0h2m1 0h4m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h5m2 0h1m2 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h2m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m1 0h1m1 0h3m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m1 0h2m1 0h1m2 0h1M2 10.5h1m1 0h5m4 0h2m1 0h1m3 0h5M2 11.5h2m2 0h1m2 0h1m3 0h1m5 0h1m1 0h1m3 0h1M2 12.5h1m1 0h1m1 0h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h1m1 0h2M2 13.5h1m11 0h1m1 0h2m8 0h1M6 14.5h7m4 0h1m1 0h2m1 0h1m1 0h3M2 15.5h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h1M2 16.5h1m4 0h6m2 0h3m3 0h3m1 0h2M2 17.5h1m2 0h3m1 0h1m2 0h1m1 0h2m1 0h6m3 0h1M2 18.5h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h5m1 0h1M10 19.5h2m5 0h2m3 0h2M2 20.5h7m2 0h4m3 0h1m1 0h1m1 0h1m1 0h3M2 21.5h1m5 0h1m1 0h1m1 0h2m2 0h1m1 0h1m3 0h2M2 22.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h6m1 0h1m1 0h1M2 23.5h1m1 0h3m1 0h1m1 0h2m2 0h3m2 0h2m1 0h5M2 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m2 0h1m3 0h2m1 0h1M2 25.5h1m5 0h1m5 0h2m1 0h7m2 0h1M2 26.5h7m1 0h1m3 0h1m1 0h1m4 0h6"/></svg>
+        </div>
+        <div class="cta-text">
+          <span class="cta-link">find your people <span class="arrow">&rarr;</span></span>
+          <span class="cta-url">arivela.co</span>
+          <span class="cta-cap">scan to begin</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 · footer -->
+    <div class="footer">
+      <div class="foot-rule"></div>
+      <div class="foot-line">one community, many practices.</div>
+    </div>
+
+  </div>
+
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg"><filter id="pg"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#pg)"/></svg>
+</div>
+</body>
+</html>

@@ -1,12 +1,12 @@
 # ARIVELA — Freepik Shotlist
 
-A shopping checklist for the **photo-treatment** flyers. Every photo slot across the four
+A shopping checklist for the **photo-treatment** flyers. Every photo slot across the five
 concepts is listed here, organised **by concept** and then **by page/side**, with its
 art-direction brief and the exact Freepik search phrases to search against. Tick a slot off once
 you've licensed an image for it.
 
 The duotone pages need **no photos** — their illustration is inline SVG. This list covers only the
-eight `*-photo-*` pages (one guests/front + one hosts/back per concept).
+ten `*-photo-*` pages (one guests/front + one hosts/back per concept).
 
 ---
 
@@ -162,6 +162,40 @@ margin city-rail never fight the image.
 
 ---
 
+## Concept 5 — "You Were Never Meant to Practise Alone"
+
+Community is the only subject. Both sides carry **one centred focal frame — a gathering** — read
+as a ring with a calm, open middle. **No places, ever:** the room must be unreadable as any city
+or country — no signage, no skyline, no landmark, no window-view of a recognisable place, no
+flags. Scale is carried only by the people in the frame, never by a location.
+
+### c5-photo-guests.html — FRONT (guests) · the gathering (centred)
+
+- [ ] **Focal frame (centred gathering).** One warm, centred editorial photograph of a small,
+  diverse group *gathered* — sat loosely in a circle after a session, mid-quiet-laugh, leaning
+  in, sharing tea, no performance. Compose as a ring with an open, calm centre (shoot slightly
+  from above, or leave a gap in the circle that frames cream space). Warm window light, muted
+  tones. The *people and the togetherness* are the subject; place is unreadable and irrelevant.
+  - `"diverse group sitting in circle after yoga class candid natural light"`
+  - `"small community gathering warm tones real people laughing unposed"`
+  - `"people connecting after meditation session window light documentary"`
+  - *Avoid in selection:* any recognisable building exterior, city window-view, flags, signage,
+    or location-identifying detail.
+
+### c5-photo-hosts.html — BACK (hosts) · turned toward you (centred)
+
+- [ ] **Focal frame (turned toward you).** A quieter centred frame where a community is gently
+  *oriented toward* one person — a facilitator welcomed into a circle, or a teacher arriving as a
+  warm group turns to greet them. Olive-leaning grade. The feeling is *being found and received*,
+  not performing. Leave the open centre / lower area clear for the four value lines.
+  - `"small group welcoming teacher into circle warm natural light candid"`
+  - `"facilitator greeted by diverse community real people documentary"`
+  - `"people turning toward instructor calm studio warm neutral tones"`
+  - *Avoid in selection:* stages, microphones, audience-and-speaker hierarchy, any location
+    markers (signage / skyline / landmark / flag).
+
+---
+
 ## At a glance — slot count
 
 | Concept | Front (guests) | Back (hosts) |
@@ -170,7 +204,8 @@ margin city-rail never fight the image.
 | 2 — People You Can Trust | 1 focal | 1 focal |
 | 3 — Your Practice Has a Home | 1 focal + 1 optional inset | 1 calm band |
 | 4 — Off the Center | 1 primary + 1 optional inset | 1 primary + 1 optional inset |
+| 5 — You Were Never Meant to Practise Alone | 1 focal (the gathering) | 1 focal (turned toward you) |
 
-Required slots: **8** (one per photo page). Optional insets: **5**. After licensing, drop each
+Required slots: **10** (one per photo page). Optional insets: **5**. After licensing, drop each
 image into the matching frame in `pages/c{N}-photo-{side}.html` (see README → "How to swap in
 Freepik photos") and re-render with `render.mjs`.

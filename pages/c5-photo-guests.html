@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');</style>
+<style>
+  :root{
+    --cream:#F9F6EF; --warm:#FFF6E9; --white:#FFFFFF;
+    --ink:#1D1D21; --ink2:#5C5C5C; --meta:#8C8C8C; --hair:#E8E4DC;
+    --orange:#C8702A; --orange-deep:#A85A1E; --orange-tint:#FAF3EA; --brown:#3F290E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#cfcabd;}
+  .page{
+    position:relative; width:1748px; height:2480px; overflow:hidden;
+    background:
+      radial-gradient(122% 72% at 50% 45%, #FFFBF4 0%, #FCF7EE 34%, #F8F4EC 64%, #F2ECDF 100%);
+    font-family:'Inter',system-ui,sans-serif; color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .weave{position:absolute; inset:0; width:1748px; height:2480px; z-index:1; pointer-events:none;}
+  .grain{position:absolute; inset:0; z-index:2; mix-blend-mode:multiply; opacity:.42; pointer-events:none;}
+  .vignette{position:absolute; inset:0; z-index:3; pointer-events:none;
+    background:radial-gradient(120% 78% at 50% 45%, rgba(63,41,14,0) 56%, rgba(63,41,14,.05) 84%, rgba(63,41,14,.12) 100%);}
+  .content{position:absolute; inset:0; z-index:6;}
+
+  /* ---- masthead ---- */
+  .mast{position:absolute; left:0; right:0; top:152px; text-align:center;}
+  .wordmark{font-family:'Inter'; font-weight:600; font-size:43px; letter-spacing:.42em;
+    text-indent:.42em; color:var(--ink);}
+  .mast-rule{width:46px; height:2px; background:var(--orange); margin:22px auto 0;}
+  .eyebrow{margin-top:26px; font-family:'Inter'; font-weight:500; font-size:22px;
+    letter-spacing:.34em; text-indent:.34em; color:var(--meta); text-transform:uppercase;}
+
+  /* ---- hero — locked to a 128px baseline grid; orange clause optically a touch larger ---- */
+  .hero{position:absolute; left:118px; right:118px; top:392px; text-align:center;}
+  .hero h1{font-family:'Lora'; font-style:italic; font-weight:500; color:var(--ink);}
+  .hero .l1{display:block; font-size:104px; line-height:128px; letter-spacing:-0.014em;}
+  .hero .l2{display:block; font-size:112px; line-height:128px; letter-spacing:-0.016em;
+    color:var(--orange-deep);}
+
+  /* ---- the central gathering : feathered photo frame inside the woven heart ---- */
+  .gather{position:absolute; left:50%; top:752px; transform:translateX(-50%);
+    width:708px; height:708px;}
+  /* feathered outer halo so the disc bleeds soft, not a hard edge */
+  .gather::before{content:""; position:absolute; left:50%; top:50%;
+    width:864px; height:864px; transform:translate(-50%,-50%); border-radius:50%;
+    background:radial-gradient(circle at 50% 47%,
+      rgba(255,252,246,0) 38%, rgba(255,250,240,.60) 47%,
+      rgba(252,246,236,.28) 56%, rgba(252,246,236,0) 66%);}
+  .frame{position:absolute; inset:0; border-radius:50%;
+    background:linear-gradient(150deg,#FFFDF8 0%, #FBF4E8 52%, #F3E8D4 100%);
+    box-shadow:0 2px 0 rgba(255,255,255,.75) inset,
+               0 0 0 1px rgba(200,112,42,.10),
+               0 54px 112px -54px rgba(63,41,14,.50);
+    /* feathered mask: the disc dissolves a hair at its rim instead of a hard cut */
+    -webkit-mask:radial-gradient(circle at 50% 50%, #000 96.5%, transparent 99.6%);
+            mask:radial-gradient(circle at 50% 50%, #000 96.5%, transparent 99.6%);
+    overflow:hidden;}
+  .frame::before{content:""; position:absolute; inset:3px; border-radius:50%;
+    border:1.5px solid rgba(200,112,42,.42);}
+  .frame::after{content:""; position:absolute; inset:30px; border-radius:50%;
+    border:1px solid rgba(63,41,14,.12);}
+  .frame-inner{position:absolute; inset:30px; border-radius:50%; overflow:hidden;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    background:
+      radial-gradient(86% 86% at 50% 30%, rgba(255,255,255,.62), rgba(255,255,255,0) 60%),
+      radial-gradient(120% 120% at 50% 118%, rgba(63,41,14,.10), rgba(63,41,14,0) 46%),
+      repeating-linear-gradient(135deg, rgba(200,112,42,.05) 0 2px, rgba(200,112,42,0) 2px 14px),
+      linear-gradient(160deg,#FBF1E2,#F1E2CC);}
+  /* four registration ticks on the inner ring — a small art-directed-plate signal */
+  .frame-inner::before,.frame-inner::after,
+  .tick-h,.tick-v{position:absolute; background:rgba(200,112,42,.40);}
+  .frame-inner::before{content:""; top:14px; left:50%; width:1px; height:14px; transform:translateX(-50%);}
+  .frame-inner::after{content:""; bottom:14px; left:50%; width:1px; height:14px; transform:translateX(-50%);}
+  .frame .tick-h{top:50%; width:14px; height:1px; transform:translateY(-50%);}
+  .frame .tick-h.l{left:44px;} .frame .tick-h.r{right:44px;}
+  .ad{padding:0 84px; max-width:548px;}
+  .ad-kick{position:relative; display:inline-block; padding-top:21px;}
+  .ad-kick::before{content:""; position:absolute; top:0; left:50%; transform:translateX(-50%);
+    width:40px; height:2px; background:var(--orange);}
+  .ad-tag{font-family:'Inter'; font-weight:600; font-size:21px; letter-spacing:.30em;
+    text-indent:.30em; color:var(--orange-deep); text-transform:uppercase;}
+  .ad-body{margin-top:23px; font-family:'Inter'; font-weight:400; font-size:25px;
+    line-height:1.52; color:#6a5a45;}
+  .ad-freepik{margin-top:20px; font-family:'Inter'; font-weight:400; font-size:18px;
+    line-height:1.5; color:#a4977f; font-style:italic;}
+  .ad-freepik b{font-style:normal; font-weight:600; font-size:14px; letter-spacing:.20em;
+    text-indent:.20em; text-transform:uppercase; color:#8f8068; margin-right:8px;}
+
+  /* the open-heart label tucked just below the frame, with flanking hairlines */
+  .heart-cap{position:absolute; left:50%; top:1506px; transform:translateX(-50%); text-align:center;
+    display:flex; align-items:center; gap:22px;}
+  .heart-cap::before,.heart-cap::after{content:""; width:46px; height:1px; background:rgba(200,112,42,.34);}
+  .heart-cap .lab{font-family:'Inter'; font-weight:600; font-size:19px; letter-spacing:.40em;
+    text-indent:.40em; color:var(--orange); text-transform:uppercase;}
+
+  /* ---- value block ---- */
+  .value{position:absolute; left:118px; right:118px; top:1624px; text-align:center;}
+  .subhead{font-family:'Lora'; font-style:italic; font-weight:400; font-size:48px;
+    line-height:1.3; color:#3c3024;}
+  .support{margin-top:30px; font-family:'Inter'; font-weight:400; font-size:26px;
+    line-height:1.54; color:var(--ink2);}
+
+  /* ---- CTA cluster : QR + link + url + label locked to one optical baseline ---- */
+  .cta{position:absolute; left:50%; top:1952px; transform:translateX(-50%);
+    display:flex; align-items:stretch; gap:42px;}
+  .qr-wrap{align-self:center; background:#fff; padding:13px; border-radius:11px;
+    border:1px solid var(--hair); box-shadow:0 16px 38px -26px rgba(63,41,14,.55);}
+  .qr-wrap svg{display:block; width:152px; height:152px;}
+  .cta-text{display:flex; flex-direction:column; justify-content:center; text-align:left;}
+  .cta-link{font-family:'Lora'; font-style:italic; font-weight:500; font-size:50px;
+    color:var(--orange-deep); line-height:1.0;}
+  .cta-link .arr{font-style:normal; font-family:'Inter'; font-weight:400;}
+  /* the 2px accent rule + url + label hang to a single baseline beneath the link */
+  .cta-rule{width:54px; height:2px; background:var(--orange); margin:20px 0 16px;}
+  .cta-url{font-family:'Inter'; font-weight:600; font-size:28px;
+    letter-spacing:.18em; text-indent:.18em; color:var(--ink);}
+  .cta-label{margin-top:11px; font-family:'Inter'; font-weight:500; font-size:19px;
+    letter-spacing:.20em; text-indent:.20em; color:var(--meta); text-transform:uppercase;}
+
+  /* ---- footer ---- */
+  .foot{position:absolute; left:118px; right:118px; bottom:124px; text-align:center;}
+  .foot-rule{width:132px; height:1px; background:var(--hair); margin:0 auto 26px;}
+  .foot-line{font-family:'Inter'; font-weight:500; font-size:23px;
+    letter-spacing:.28em; text-indent:.28em; color:var(--meta); text-transform:uppercase;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ WOVEN-TOGETHER ARTWORK (full bleed). centre heart @ (874,1106) ============ -->
+  <svg class="weave" viewBox="0 0 1748 2480" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <radialGradient id="gHeart" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#FFFCF6"/>
+        <stop offset="58%" stop-color="#FCF6EC"/>
+        <stop offset="100%" stop-color="#FCF6EC" stop-opacity="0"/>
+      </radialGradient>
+      <!-- second, fainter tint ring behind the centre for layered depth -->
+      <radialGradient id="gRing2" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#C8702A" stop-opacity="0"/>
+        <stop offset="74%" stop-color="#C8702A" stop-opacity="0"/>
+        <stop offset="86%" stop-color="#C8702A" stop-opacity="0.05"/>
+        <stop offset="93%" stop-color="#C8702A" stop-opacity="0.018"/>
+        <stop offset="100%" stop-color="#C8702A" stop-opacity="0"/>
+      </radialGradient>
+      <!-- threads FADE as they leave the centre: opaque at the knot, vanishing at the rim -->
+      <radialGradient id="gFade" cx="874" cy="1106" r="1180" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#C8702A" stop-opacity="0.62"/>
+        <stop offset="30%" stop-color="#C8702A" stop-opacity="0.50"/>
+        <stop offset="62%" stop-color="#C8702A" stop-opacity="0.24"/>
+        <stop offset="86%" stop-color="#A85A1E" stop-opacity="0.07"/>
+        <stop offset="100%" stop-color="#A85A1E" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="gWeft" cx="874" cy="1106" r="1180" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#A85A1E" stop-opacity="0.20"/>
+        <stop offset="55%" stop-color="#A85A1E" stop-opacity="0.08"/>
+        <stop offset="100%" stop-color="#A85A1E" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="gKnot" cx="50%" cy="42%" r="60%">
+        <stop offset="0%" stop-color="#C8702A" stop-opacity="0.50"/>
+        <stop offset="100%" stop-color="#C8702A" stop-opacity="0.14"/>
+      </radialGradient>
+      <!-- clip masks so portrait nodes hold their warm tint cleanly inside the disc -->
+      <clipPath id="pc1"><circle cx="0" cy="0" r="27"/></clipPath>
+      <clipPath id="pc2"><circle cx="0" cy="0" r="23"/></clipPath>
+      <clipPath id="pc3"><circle cx="0" cy="0" r="20"/></clipPath>
+      <!-- a soft top-light wash inside every portrait node, for a photographic, not flat, read -->
+      <radialGradient id="pLight" cx="50%" cy="30%" r="78%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.40"/>
+        <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <!-- second faint tint ring behind centre (layered depth) -->
+    <circle cx="874" cy="1106" r="1020" fill="url(#gRing2)"/>
+
+    <!-- radiating ripple bands — thin, fading outward (a vignette of connection) -->
+    <g fill="none" stroke="#C8702A">
+      <circle cx="874" cy="1106" r="500" stroke-width="0.9" stroke-opacity="0.07"/>
+      <circle cx="874" cy="1106" r="712" stroke-width="0.9" stroke-opacity="0.05"/>
+      <circle cx="874" cy="1106" r="936" stroke-width="0.85" stroke-opacity="0.034"/>
+      <circle cx="874" cy="1106" r="1172" stroke-width="0.8" stroke-opacity="0.022"/>
+    </g>
+
+    <!-- ===== THE WEAVE: hairline threads sweep from every edge toward the centre heart =====
+         all strands share gFade so each is opaque at the knot and dissolves at the rim.
+         the cluster directly above the hero is thinned + broken so it reads as woven threads,
+         not a uniform sunburst. ===== -->
+    <g fill="none" stroke="url(#gFade)" stroke-linecap="round">
+      <!-- from top -->
+      <path d="M 374 -40 C 470 380, 660 720, 874 1106" stroke-width="0.95"/>
+      <path d="M 690 150 C 752 480, 804 780, 874 1106" stroke-width="0.75" stroke-dasharray="190 78"/>
+      <path d="M 1006 150 C 1004 480, 952 780, 874 1106" stroke-width="0.75" stroke-dasharray="210 70"/>
+      <path d="M 1316 -40 C 1238 380, 1062 720, 874 1106" stroke-width="0.95"/>
+      <!-- from left -->
+      <path d="M -40 372 C 360 552, 560 808, 874 1106" stroke-width="1.05"/>
+      <path d="M -40 772 C 320 868, 580 988, 874 1106" stroke-width="1.2"/>
+      <path d="M -40 1188 C 360 1188, 620 1146, 874 1106" stroke-width="0.85" stroke-dasharray="320 86"/>
+      <!-- from right -->
+      <path d="M 1788 372 C 1390 552, 1190 808, 874 1106" stroke-width="1.05"/>
+      <path d="M 1788 772 C 1430 868, 1170 988, 874 1106" stroke-width="1.2"/>
+      <path d="M 1788 1188 C 1390 1188, 1130 1146, 874 1106" stroke-width="0.85" stroke-dasharray="320 86"/>
+      <!-- from below — fewer, longer, threading down past the text columns -->
+      <path d="M 232 2520 C 470 1900, 620 1450, 874 1106" stroke-width="0.95"/>
+      <path d="M 624 2520 C 722 1900, 792 1430, 874 1106" stroke-width="1.05"/>
+      <path d="M 1080 2520 C 980 1900, 942 1430, 874 1106" stroke-width="1.05"/>
+      <path d="M 1496 2520 C 1262 1900, 1090 1450, 874 1106" stroke-width="0.95"/>
+    </g>
+
+    <!-- interlacing weft : the cloth woven across the warp, faint + fading -->
+    <g fill="none" stroke="url(#gWeft)" stroke-width="0.75">
+      <path d="M -40 576 C 360 772, 640 948, 874 1106 C 1120 948, 1400 772, 1788 576"/>
+      <path d="M -40 952 C 420 1010, 660 1070, 874 1106 C 1100 1070, 1340 1010, 1788 952"/>
+      <path d="M 372 2520 C 562 1824, 722 1348, 874 1106 C 1042 1348, 1202 1824, 1392 2520"/>
+    </g>
+
+    <!-- the central woven KNOT — many becoming one -->
+    <g transform="translate(874,1106)">
+      <circle r="232" fill="url(#gKnot)" opacity="0.16"/>
+      <g fill="none" stroke="#C8702A" stroke-opacity="0.46" stroke-width="1.6" stroke-linecap="round">
+        <ellipse rx="184" ry="74" transform="rotate(0)"/>
+        <ellipse rx="184" ry="74" transform="rotate(45)"/>
+        <ellipse rx="184" ry="74" transform="rotate(90)"/>
+        <ellipse rx="184" ry="74" transform="rotate(135)"/>
+      </g>
+      <g fill="none" stroke="#A85A1E" stroke-opacity="0.22" stroke-width="1">
+        <ellipse rx="144" ry="56" transform="rotate(22)"/>
+        <ellipse rx="144" ry="56" transform="rotate(67)"/>
+        <ellipse rx="144" ry="56" transform="rotate(112)"/>
+        <ellipse rx="144" ry="56" transform="rotate(157)"/>
+      </g>
+    </g>
+
+    <!-- the open cream heart beneath the frame -->
+    <circle cx="874" cy="1106" r="476" fill="url(#gHeart)"/>
+
+    <!-- ===== THE COMMUNITY : real people (cropped portrait frames) among lighter dot-nodes =====
+         portraits carry the photo art-direction; outermost ones sit at varied distances/sizes
+         so the circle reads as a felt, worldwide community (never a map, never a place name). -->
+
+    <!-- faint dot-nodes : the wider community, scattered + breathing -->
+    <g fill="#C8702A">
+      <circle cx="318" cy="372" r="5.5" opacity="0.30"/>
+      <circle cx="1430" cy="372" r="5"   opacity="0.26"/>
+      <circle cx="214" cy="706" r="6"    opacity="0.34"/>
+      <circle cx="1536" cy="706" r="5.5" opacity="0.30"/>
+      <circle cx="402" cy="1006" r="5"   opacity="0.40"/>
+      <circle cx="1346" cy="1006" r="5"  opacity="0.40"/>
+      <circle cx="262" cy="1316" r="5.5" opacity="0.30"/>
+      <circle cx="1486" cy="1316" r="5"  opacity="0.26"/>
+      <circle cx="470" cy="1652" r="5"   opacity="0.34"/>
+      <circle cx="1278" cy="1652" r="5"  opacity="0.34"/>
+      <circle cx="356" cy="1958" r="6"   opacity="0.26"/>
+      <circle cx="1392" cy="1958" r="5.5" opacity="0.24"/>
+      <circle cx="636" cy="2130" r="5"   opacity="0.30"/>
+      <circle cx="1112" cy="2130" r="5"  opacity="0.30"/>
+      <!-- a few outermost, smaller + further : the felt worldwide circle -->
+      <circle cx="150" cy="498" r="4"  opacity="0.20"/>
+      <circle cx="1600" cy="560" r="3.5" opacity="0.18"/>
+      <circle cx="138" cy="1452" r="4" opacity="0.20"/>
+      <circle cx="1612" cy="1392" r="3.5" opacity="0.16"/>
+      <circle cx="300" cy="2238" r="3.5" opacity="0.18"/>
+      <circle cx="1452" cy="2238" r="4" opacity="0.18"/>
+    </g>
+
+    <!-- 6 portrait nodes : each a small candid PAIR (two people leaning together), not a lone
+         bust — diverse warm tints + sizes imply different people at different distances. No labels,
+         no places. Each node is also a tiny printed photo cue (the community, art-directed). -->
+    <g>
+      <!-- pc1 = r27 large node : two figures, the nearer one turned slightly in -->
+      <g transform="translate(392,712)">
+        <circle r="31.5" fill="#fff" opacity="0.96"/>
+        <circle r="27" fill="#E7C39A" clip-path="url(#pc1)"/>
+        <g clip-path="url(#pc1)">
+          <circle cx="-9" cy="-6" r="9.5" fill="#C99868"/>
+          <path d="M-26 28 a17 18 0 0 1 34 0 z" fill="#C99868"/>
+          <circle cx="11" cy="-3" r="8.5" fill="#A9774A"/>
+          <path d="M-3 30 a15 16 0 0 1 30 0 z" fill="#A9774A"/>
+          <circle r="27" fill="url(#pLight)"/>
+        </g>
+        <circle r="27" fill="none" stroke="#C8702A" stroke-opacity="0.55" stroke-width="1.4"/>
+      </g>
+      <!-- upper-right -->
+      <g transform="translate(1356,740)">
+        <circle r="27.5" fill="#fff" opacity="0.96"/>
+        <circle r="23" fill="#D8A77E" clip-path="url(#pc2)"/>
+        <g clip-path="url(#pc2)">
+          <circle cx="-7" cy="-5" r="8" fill="#B07C50"/>
+          <path d="M-22 24 a15 16 0 0 1 30 0 z" fill="#B07C50"/>
+          <circle cx="9" cy="-2" r="7" fill="#915F36"/>
+          <path d="M-2 26 a13 14 0 0 1 26 0 z" fill="#915F36"/>
+          <circle r="23" fill="url(#pLight)"/>
+        </g>
+        <circle r="23" fill="none" stroke="#C8702A" stroke-opacity="0.50" stroke-width="1.3"/>
+      </g>
+      <!-- left, close to centre, larger : the warmest, most present pair -->
+      <g transform="translate(548,1006)">
+        <circle r="31.5" fill="#fff" opacity="0.97"/>
+        <circle r="27" fill="#C98C5E" clip-path="url(#pc1)"/>
+        <g clip-path="url(#pc1)">
+          <circle cx="-10" cy="-5" r="9.5" fill="#9C6438"/>
+          <path d="M-27 28 a17 18 0 0 1 34 0 z" fill="#9C6438"/>
+          <circle cx="10" cy="-3" r="8.5" fill="#7E4F28"/>
+          <path d="M-4 30 a15 16 0 0 1 30 0 z" fill="#7E4F28"/>
+          <circle r="27" fill="url(#pLight)"/>
+        </g>
+        <circle r="27" fill="none" stroke="#A85A1E" stroke-opacity="0.62" stroke-width="1.5"/>
+      </g>
+      <!-- right, close to centre -->
+      <g transform="translate(1200,1006)">
+        <circle r="31.5" fill="#fff" opacity="0.97"/>
+        <circle r="27" fill="#E9CBA6" clip-path="url(#pc1)"/>
+        <g clip-path="url(#pc1)">
+          <circle cx="-9" cy="-6" r="9.5" fill="#CBA577"/>
+          <path d="M-26 28 a17 18 0 0 1 34 0 z" fill="#CBA577"/>
+          <circle cx="11" cy="-3" r="8.5" fill="#B08A57"/>
+          <path d="M-3 30 a15 16 0 0 1 30 0 z" fill="#B08A57"/>
+          <circle r="27" fill="url(#pLight)"/>
+        </g>
+        <circle r="27" fill="none" stroke="#C8702A" stroke-opacity="0.55" stroke-width="1.4"/>
+      </g>
+      <!-- lower-left, smaller + further -->
+      <g transform="translate(686,1496)">
+        <circle r="24.5" fill="#fff" opacity="0.95"/>
+        <circle r="20" fill="#D6A074" clip-path="url(#pc3)"/>
+        <g clip-path="url(#pc3)">
+          <circle cx="-6" cy="-4" r="7" fill="#A9774A"/>
+          <path d="M-19 21 a13 14 0 0 1 26 0 z" fill="#A9774A"/>
+          <circle cx="8" cy="-2" r="6" fill="#8A5C30"/>
+          <path d="M-2 22 a11 12 0 0 1 22 0 z" fill="#8A5C30"/>
+          <circle r="20" fill="url(#pLight)"/>
+        </g>
+        <circle r="20" fill="none" stroke="#C8702A" stroke-opacity="0.46" stroke-width="1.2"/>
+      </g>
+      <!-- lower-right -->
+      <g transform="translate(1066,1496)">
+        <circle r="24.5" fill="#fff" opacity="0.95"/>
+        <circle r="20" fill="#E3BF95" clip-path="url(#pc3)"/>
+        <g clip-path="url(#pc3)">
+          <circle cx="-6" cy="-4" r="7" fill="#BC9265"/>
+          <path d="M-19 21 a13 14 0 0 1 26 0 z" fill="#BC9265"/>
+          <circle cx="8" cy="-2" r="6" fill="#9C7748"/>
+          <path d="M-2 22 a11 12 0 0 1 22 0 z" fill="#9C7748"/>
+          <circle r="20" fill="url(#pLight)"/>
+        </g>
+        <circle r="20" fill="none" stroke="#C8702A" stroke-opacity="0.46" stroke-width="1.2"/>
+      </g>
+    </g>
+
+    <!-- faint dashed figure stepping into the open centre: room for one more (you) -->
+    <g transform="translate(874,1184)" fill="none" stroke="#C8702A" stroke-opacity="0.36"
+       stroke-width="2" stroke-linecap="round">
+      <circle cy="-23" r="14" stroke-dasharray="5 6"/>
+      <path d="M-20 19 a20 26 0 0 1 40 0" stroke-dasharray="5 6"/>
+    </g>
+  </svg>
+
+  <!-- paper grain -->
+  <svg class="grain" viewBox="0 0 1748 2480" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <filter id="grainF"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0.25  0 0 0 0 0.16  0 0 0 0 0.05  0 0 0 0.05 0"/></filter>
+    </defs>
+    <rect width="1748" height="2480" filter="url(#grainF)"/>
+  </svg>
+
+  <div class="vignette"></div>
+
+  <!-- ============ CONTENT ============ -->
+  <div class="content">
+
+    <div class="mast">
+      <div class="wordmark">ARIVELA</div>
+      <div class="mast-rule"></div>
+      <div class="eyebrow">Events&nbsp;&middot;&nbsp;Retreats&nbsp;&middot;&nbsp;Trainings</div>
+    </div>
+
+    <div class="hero">
+      <h1><span class="l1">you were never meant</span><span class="l2">to practise alone.</span></h1>
+    </div>
+
+    <div class="gather">
+      <div class="frame">
+        <span class="tick-h l"></span><span class="tick-h r"></span>
+        <div class="frame-inner">
+          <div class="ad">
+            <div class="ad-kick"><span class="ad-tag">Photo &mdash; the gathering</span></div>
+            <div class="ad-body">A small, diverse group loosely circled after a session &mdash;
+              leaning in, sharing tea. The togetherness is the subject; the room is placeless.</div>
+            <div class="ad-freepik"><b>Freepik</b> &ldquo;diverse group in circle after yoga
+              class, candid natural light&rdquo;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="heart-cap">
+      <div class="lab">room for one more</div>
+    </div>
+
+    <div class="value">
+      <div class="subhead">the experiences that matter most<br>are the ones you share.</div>
+      <div class="support">real events, retreats and trainings, held by people you can trust &mdash;<br>
+        inside a community that already feels like yours.</div>
+    </div>
+
+    <div class="cta">
+      <div class="qr-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1D1D21" d="M2 2.5h7m2 0h5m2 0h1m1 0h7M2 3.5h1m5 0h1m3 0h2m1 0h4m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h5m2 0h1m2 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h2m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m1 0h1m1 0h3m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m1 0h2m1 0h1m2 0h1M2 10.5h1m1 0h5m4 0h2m1 0h1m3 0h5M2 11.5h2m2 0h1m2 0h1m3 0h1m5 0h1m1 0h1m3 0h1M2 12.5h1m1 0h1m1 0h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h1m1 0h2M2 13.5h1m11 0h1m1 0h2m8 0h1M6 14.5h7m4 0h1m1 0h2m1 0h1m1 0h3M2 15.5h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h1M2 16.5h1m4 0h6m2 0h3m3 0h3m1 0h2M2 17.5h1m2 0h3m1 0h1m2 0h1m1 0h2m1 0h6m3 0h1M2 18.5h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h5m1 0h1M10 19.5h2m5 0h2m3 0h2M2 20.5h7m2 0h4m3 0h1m1 0h1m1 0h1m1 0h3M2 21.5h1m5 0h1m1 0h1m1 0h2m2 0h1m1 0h1m3 0h2M2 22.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h6m1 0h1m1 0h1M2 23.5h1m1 0h3m1 0h1m1 0h2m2 0h3m2 0h2m1 0h5M2 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m2 0h1m3 0h2m1 0h1M2 25.5h1m5 0h1m5 0h2m1 0h7m2 0h1M2 26.5h7m1 0h1m3 0h1m1 0h1m4 0h6"/></svg>
+      </div>
+      <div class="cta-text">
+        <div class="cta-link">find your people&nbsp;<span class="arr">&rarr;</span></div>
+        <div class="cta-rule"></div>
+        <div class="cta-url">arivela.co</div>
+        <div class="cta-label">discover what&rsquo;s near you</div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="foot-rule"></div>
+      <div class="foot-line">one community, many practices</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

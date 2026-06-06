@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');</style>
+<style>
+  :root{
+    --cream:#F9F6EF; --warm:#FFF6E9; --white:#FFFFFF;
+    --ink:#1D1D21; --ink2:#5C5C5C; --meta:#8C8C8C; --hair:#E8E4DC;
+    --olive:#6B6E45; --olive-deep:#4E5132; --olive-tint:#F5F6F0; --olive-ink:#12130C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#c6c7ba;}
+  .page{
+    position:relative; width:1748px; height:2480px; overflow:hidden;
+    background:
+      radial-gradient(120% 70% at 50% 42%, #FBFBF5 0%, #F7F7EF 36%, #F4F4EB 66%, #ECECDF 100%);
+    font-family:'Inter',system-ui,sans-serif; color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .weave{position:absolute; inset:0; width:1748px; height:2480px; z-index:1; pointer-events:none;}
+  .grain{position:absolute; inset:0; z-index:2; mix-blend-mode:multiply; opacity:.42; pointer-events:none;}
+  .vignette{position:absolute; inset:0; z-index:3; pointer-events:none;
+    background:radial-gradient(118% 78% at 50% 42%, rgba(18,19,12,0) 56%, rgba(18,19,12,.05) 84%, rgba(18,19,12,.12) 100%);}
+  .content{position:absolute; inset:0; z-index:6;}
+
+  /* ---- masthead ---- */
+  .mast{position:absolute; left:0; right:0; top:152px; text-align:center;}
+  .wordmark{font-family:'Inter'; font-weight:600; font-size:43px; letter-spacing:.42em;
+    text-indent:.42em; color:var(--ink);}
+  .mast-rule{width:46px; height:2px; background:var(--olive); margin:22px auto 0;}
+  .eyebrow{margin-top:26px; font-family:'Inter'; font-weight:500; font-size:21px;
+    letter-spacing:.30em; text-indent:.30em; color:var(--meta); text-transform:uppercase;}
+
+  /* ---- hero — mirrors the guests hero exactly : 128px baseline grid, olive clause a touch larger ---- */
+  .hero{position:absolute; left:118px; right:118px; top:388px; text-align:center;}
+  .hero h1{font-family:'Lora'; font-style:italic; font-weight:500; color:var(--olive-ink);}
+  .hero .l1{display:block; font-size:88px; line-height:118px; letter-spacing:-0.014em;}
+  .hero .l2{display:block; font-size:94px; line-height:118px; letter-spacing:-0.016em;
+    color:var(--olive-deep);}
+  .hero .descender{margin-top:22px; font-family:'Lora'; font-style:normal; font-weight:400;
+    font-size:38px; color:var(--olive); letter-spacing:.01em;}
+
+  /* ---- central gathering — turned toward you, feathered ---- */
+  .gather{position:absolute; left:50%; top:736px; transform:translateX(-50%);
+    width:592px; height:592px;}
+  .gather::before{content:""; position:absolute; left:50%; top:50%;
+    width:728px; height:728px; transform:translate(-50%,-50%); border-radius:50%;
+    background:radial-gradient(circle at 50% 47%,
+      rgba(252,252,247,0) 38%, rgba(248,249,240,.58) 47%,
+      rgba(244,245,236,.28) 56%, rgba(244,245,236,0) 66%);}
+  .frame{position:absolute; inset:0; border-radius:50%;
+    background:linear-gradient(150deg,#FCFCF7 0%, #F2F3EA 52%, #E5E7D6 100%);
+    box-shadow:0 2px 0 rgba(255,255,255,.75) inset,
+               0 0 0 1px rgba(107,110,69,.10),
+               0 50px 106px -54px rgba(18,19,12,.46);
+    -webkit-mask:radial-gradient(circle at 50% 50%, #000 96.5%, transparent 99.6%);
+            mask:radial-gradient(circle at 50% 50%, #000 96.5%, transparent 99.6%);
+    overflow:hidden;}
+  .frame::before{content:""; position:absolute; inset:3px; border-radius:50%;
+    border:1.5px solid rgba(107,110,69,.42);}
+  .frame::after{content:""; position:absolute; inset:26px; border-radius:50%;
+    border:1px solid rgba(18,19,12,.12);}
+  .frame-inner{position:absolute; inset:26px; border-radius:50%; overflow:hidden;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    background:
+      radial-gradient(86% 86% at 50% 30%, rgba(255,255,255,.62), rgba(255,255,255,0) 60%),
+      radial-gradient(120% 120% at 50% 118%, rgba(18,19,12,.10), rgba(18,19,12,0) 46%),
+      repeating-linear-gradient(135deg, rgba(107,110,69,.05) 0 2px, rgba(107,110,69,0) 2px 14px),
+      linear-gradient(160deg,#F1F2E7,#E2E4D2);}
+  /* four registration ticks on the inner ring — a small art-directed-plate signal */
+  .frame-inner::before{content:""; position:absolute; top:13px; left:50%; width:1px; height:13px;
+    transform:translateX(-50%); background:rgba(107,110,69,.42);}
+  .frame-inner::after{content:""; position:absolute; bottom:13px; left:50%; width:1px; height:13px;
+    transform:translateX(-50%); background:rgba(107,110,69,.42);}
+  .frame .tick-h{position:absolute; top:50%; width:13px; height:1px; transform:translateY(-50%);
+    background:rgba(107,110,69,.42);}
+  .frame .tick-h.l{left:40px;} .frame .tick-h.r{right:40px;}
+  .ad{padding:0 70px; max-width:484px;}
+  .ad-kick{position:relative; display:inline-block; padding-top:20px;}
+  .ad-kick::before{content:""; position:absolute; top:0; left:50%; transform:translateX(-50%);
+    width:40px; height:2px; background:var(--olive);}
+  .ad-tag{font-family:'Inter'; font-weight:600; font-size:20px; letter-spacing:.30em;
+    text-indent:.30em; color:var(--olive-deep); text-transform:uppercase;}
+  .ad-body{margin-top:21px; font-family:'Inter'; font-weight:400; font-size:24px;
+    line-height:1.5; color:#54573e;}
+  .ad-freepik{margin-top:18px; font-family:'Inter'; font-weight:400; font-size:18px;
+    line-height:1.48; color:#8e9079; font-style:italic;}
+  .ad-freepik b{font-style:normal; font-weight:600; font-size:14px; letter-spacing:.20em;
+    text-indent:.20em; text-transform:uppercase; color:#7a7c66; margin-right:8px;}
+
+  /* lead-in just below the frame */
+  .lead{position:absolute; left:118px; right:118px; top:1356px; text-align:center;}
+  .lead p{font-family:'Lora'; font-style:italic; font-weight:400; font-size:37px;
+    line-height:1.34; color:#3e4030;}
+
+  /* ---- four invitations : equal column rhythm with hanging numerals ---- */
+  .props{position:absolute; left:182px; right:182px; top:1556px;}
+  .prop{display:grid; grid-template-columns:78px 1fr; align-items:baseline; column-gap:24px;
+    padding:22px 0; border-top:1px solid var(--hair);}
+  .props .prop:first-child{border-top:none;}
+  .num{font-family:'Lora'; font-style:italic; font-weight:500; font-size:44px;
+    line-height:1; color:var(--olive); text-align:right; padding-top:2px;}
+  .num .sl{font-size:26px; color:rgba(107,110,69,.5); margin-left:2px;}
+  .ptxt{}
+  .ptitle{font-family:'Lora'; font-style:italic; font-weight:500; font-size:35px;
+    line-height:1.16; color:var(--olive-ink);}
+  .ptitle .soon{font-family:'Inter'; font-style:normal; font-weight:600; font-size:16px;
+    letter-spacing:.26em; text-indent:.26em; color:var(--olive); vertical-align:middle;
+    border:1px solid rgba(107,110,69,.42); border-radius:4px; padding:4px 9px 3px;
+    margin-left:14px; text-transform:uppercase;}
+  .pbody{margin-top:10px; font-family:'Inter'; font-weight:400; font-size:23px;
+    line-height:1.45; color:var(--ink2);}
+
+  /* ---- CTA cluster : QR + link + url + label locked to one optical baseline ---- */
+  .cta{position:absolute; left:50%; top:2098px; transform:translateX(-50%);
+    display:flex; align-items:stretch; gap:42px;}
+  .qr-wrap{align-self:center; background:#fff; padding:13px; border-radius:11px;
+    border:1px solid var(--hair); box-shadow:0 16px 38px -26px rgba(18,19,12,.55);}
+  .qr-wrap svg{display:block; width:148px; height:148px;}
+  .cta-text{display:flex; flex-direction:column; justify-content:center; text-align:left;}
+  .cta-link{font-family:'Lora'; font-style:italic; font-weight:500; font-size:46px;
+    color:var(--olive-deep); line-height:1.0;}
+  .cta-link .arr{font-style:normal; font-family:'Inter'; font-weight:400;}
+  .cta-rule{width:54px; height:2px; background:var(--olive); margin:18px 0 15px;}
+  .cta-url{font-family:'Inter'; font-weight:600; font-size:27px;
+    letter-spacing:.18em; text-indent:.18em; color:var(--ink);}
+  .cta-label{margin-top:11px; font-family:'Inter'; font-weight:500; font-size:18px;
+    letter-spacing:.20em; text-indent:.20em; color:var(--meta); text-transform:uppercase;}
+
+  /* ---- footer ---- */
+  .foot{position:absolute; left:118px; right:118px; bottom:124px; text-align:center;}
+  .foot-rule{width:132px; height:1px; background:var(--hair); margin:0 auto 26px;}
+  .foot-line{font-family:'Inter'; font-weight:500; font-size:23px;
+    letter-spacing:.28em; text-indent:.28em; color:var(--meta); text-transform:uppercase;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ WOVEN-TOGETHER ARTWORK (full bleed). centre heart @ (874,1012) ============ -->
+  <svg class="weave" viewBox="0 0 1748 2480" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <radialGradient id="gHeart" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#FCFCF6"/>
+        <stop offset="58%" stop-color="#F6F6EE"/>
+        <stop offset="100%" stop-color="#F6F6EE" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="gRing2" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#6B6E45" stop-opacity="0"/>
+        <stop offset="74%" stop-color="#6B6E45" stop-opacity="0"/>
+        <stop offset="86%" stop-color="#6B6E45" stop-opacity="0.05"/>
+        <stop offset="93%" stop-color="#6B6E45" stop-opacity="0.018"/>
+        <stop offset="100%" stop-color="#6B6E45" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="gFade" cx="874" cy="1012" r="1180" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#6B6E45" stop-opacity="0.64"/>
+        <stop offset="30%" stop-color="#6B6E45" stop-opacity="0.52"/>
+        <stop offset="62%" stop-color="#6B6E45" stop-opacity="0.26"/>
+        <stop offset="86%" stop-color="#4E5132" stop-opacity="0.07"/>
+        <stop offset="100%" stop-color="#4E5132" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="gWeft" cx="874" cy="1012" r="1180" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#4E5132" stop-opacity="0.20"/>
+        <stop offset="55%" stop-color="#4E5132" stop-opacity="0.08"/>
+        <stop offset="100%" stop-color="#4E5132" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="gKnot" cx="50%" cy="42%" r="60%">
+        <stop offset="0%" stop-color="#6B6E45" stop-opacity="0.50"/>
+        <stop offset="100%" stop-color="#6B6E45" stop-opacity="0.14"/>
+      </radialGradient>
+      <clipPath id="pc1"><circle cx="0" cy="0" r="27"/></clipPath>
+      <clipPath id="pc2"><circle cx="0" cy="0" r="23"/></clipPath>
+      <clipPath id="pc3"><circle cx="0" cy="0" r="20"/></clipPath>
+      <!-- soft top-light wash inside every portrait node, for a photographic, not flat, read -->
+      <radialGradient id="pLight" cx="50%" cy="30%" r="78%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.40"/>
+        <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <!-- second faint tint ring behind centre (layered depth) -->
+    <circle cx="874" cy="1012" r="980" fill="url(#gRing2)"/>
+
+    <!-- radiating ripple bands — thin, fading outward -->
+    <g fill="none" stroke="#6B6E45">
+      <circle cx="874" cy="1012" r="460" stroke-width="0.9" stroke-opacity="0.075"/>
+      <circle cx="874" cy="1012" r="668" stroke-width="0.9" stroke-opacity="0.05"/>
+      <circle cx="874" cy="1012" r="888" stroke-width="0.85" stroke-opacity="0.034"/>
+      <circle cx="874" cy="1012" r="1124" stroke-width="0.8" stroke-opacity="0.022"/>
+    </g>
+
+    <!-- ===== THE WEAVE: hairline threads sweep from every edge toward the centre heart =====
+         all strands share gFade; the cluster above the hero is thinned + broken. ===== -->
+    <g fill="none" stroke="url(#gFade)" stroke-linecap="round">
+      <!-- from top -->
+      <path d="M 374 -40 C 470 320, 660 620, 874 1012" stroke-width="0.95"/>
+      <path d="M 690 130 C 752 420, 804 700, 874 1012" stroke-width="0.75" stroke-dasharray="180 76"/>
+      <path d="M 1006 130 C 1004 420, 952 700, 874 1012" stroke-width="0.75" stroke-dasharray="200 68"/>
+      <path d="M 1316 -40 C 1238 320, 1062 620, 874 1012" stroke-width="0.95"/>
+      <!-- from left -->
+      <path d="M -40 360 C 360 500, 560 742, 874 1012" stroke-width="1.05"/>
+      <path d="M -40 720 C 320 800, 580 922, 874 1012" stroke-width="1.2"/>
+      <path d="M -40 1080 C 360 1092, 620 1062, 874 1012" stroke-width="0.85" stroke-dasharray="300 84"/>
+      <!-- from right -->
+      <path d="M 1788 360 C 1390 500, 1190 742, 874 1012" stroke-width="1.05"/>
+      <path d="M 1788 720 C 1430 800, 1170 922, 874 1012" stroke-width="1.2"/>
+      <path d="M 1788 1080 C 1390 1092, 1130 1062, 874 1012" stroke-width="0.85" stroke-dasharray="300 84"/>
+      <!-- from below — thread down THROUGH the four invitations, tying them to the centre -->
+      <path d="M 300 2520 C 470 1860, 600 1362, 874 1012" stroke-width="0.95"/>
+      <path d="M 620 2520 C 722 1840, 792 1342, 874 1012" stroke-width="1.05"/>
+      <path d="M 1080 2520 C 980 1840, 942 1342, 874 1012" stroke-width="1.05"/>
+      <path d="M 1444 2520 C 1244 1860, 1090 1362, 874 1012" stroke-width="0.95"/>
+    </g>
+
+    <!-- interlacing weft -->
+    <g fill="none" stroke="url(#gWeft)" stroke-width="0.75">
+      <path d="M -40 524 C 360 704, 640 864, 874 1012 C 1120 864, 1400 704, 1788 524"/>
+      <path d="M -40 884 C 420 944, 660 992, 874 1012 C 1100 992, 1340 944, 1788 884"/>
+      <path d="M 372 2520 C 562 1772, 722 1262, 874 1012 C 1042 1262, 1202 1772, 1392 2520"/>
+    </g>
+
+    <!-- the central woven KNOT -->
+    <g transform="translate(874,1012)">
+      <circle r="226" fill="url(#gKnot)" opacity="0.16"/>
+      <g fill="none" stroke="#6B6E45" stroke-opacity="0.46" stroke-width="1.6" stroke-linecap="round">
+        <ellipse rx="178" ry="72" transform="rotate(0)"/>
+        <ellipse rx="178" ry="72" transform="rotate(45)"/>
+        <ellipse rx="178" ry="72" transform="rotate(90)"/>
+        <ellipse rx="178" ry="72" transform="rotate(135)"/>
+      </g>
+      <g fill="none" stroke="#4E5132" stroke-opacity="0.22" stroke-width="1">
+        <ellipse rx="140" ry="55" transform="rotate(22)"/>
+        <ellipse rx="140" ry="55" transform="rotate(67)"/>
+        <ellipse rx="140" ry="55" transform="rotate(112)"/>
+        <ellipse rx="140" ry="55" transform="rotate(157)"/>
+      </g>
+    </g>
+
+    <!-- open heart beneath frame -->
+    <circle cx="874" cy="1012" r="436" fill="url(#gHeart)"/>
+
+    <!-- ===== THE COMMUNITY : real people turned TOWARD the centre (the host being received) =====
+         portraits carry the photo art-direction; outermost ones at varied distances/sizes
+         imply a felt, worldwide community (never a map, never a place name). -->
+
+    <!-- faint dot-nodes : the wider community -->
+    <g fill="#6B6E45">
+      <circle cx="320" cy="336" r="5.5" opacity="0.30"/>
+      <circle cx="1428" cy="336" r="5"   opacity="0.26"/>
+      <circle cx="216" cy="664" r="6"    opacity="0.34"/>
+      <circle cx="1532" cy="664" r="5.5" opacity="0.30"/>
+      <circle cx="404" cy="934" r="5"    opacity="0.40"/>
+      <circle cx="1344" cy="934" r="5"   opacity="0.40"/>
+      <circle cx="270" cy="1198" r="5.5" opacity="0.30"/>
+      <circle cx="1478" cy="1198" r="5"  opacity="0.26"/>
+      <circle cx="480" cy="1486" r="5"   opacity="0.32"/>
+      <circle cx="1268" cy="1486" r="5"  opacity="0.32"/>
+      <circle cx="392" cy="1772" r="5.5" opacity="0.24"/>
+      <circle cx="1356" cy="1772" r="5"  opacity="0.24"/>
+      <!-- outermost, smaller + further : the felt worldwide circle -->
+      <circle cx="156" cy="470" r="4"  opacity="0.20"/>
+      <circle cx="1596" cy="520" r="3.5" opacity="0.18"/>
+      <circle cx="142" cy="1320" r="4" opacity="0.20"/>
+      <circle cx="1606" cy="1268" r="3.5" opacity="0.16"/>
+      <circle cx="300" cy="2030" r="3.5" opacity="0.18"/>
+      <circle cx="1450" cy="2030" r="4" opacity="0.18"/>
+    </g>
+
+    <!-- connecting hairlines : teachers linked to their places (human connection, never a map) -->
+    <g stroke="#6B6E45" stroke-opacity="0.26" stroke-width="0.9">
+      <line x1="484" y1="700" x2="430" y2="986"/>
+      <line x1="1264" y1="700" x2="1318" y2="986"/>
+    </g>
+
+    <!-- 6 portrait nodes : each a candid PAIR turned toward the centre (the community that
+         receives the host) — not a lone bust. Diverse olive tints + sizes imply real people at
+         varied distances. No labels, no places. -->
+    <g>
+      <!-- upper-left (cleared below the hero) -->
+      <g transform="translate(388,672)">
+        <circle r="31.5" fill="#fff" opacity="0.96"/>
+        <circle r="27" fill="#BFC09A" clip-path="url(#pc1)"/>
+        <g clip-path="url(#pc1)">
+          <circle cx="-9" cy="-6" r="9.5" fill="#969872"/>
+          <path d="M-26 28 a17 18 0 0 1 34 0 z" fill="#969872"/>
+          <circle cx="11" cy="-3" r="8.5" fill="#7C7E54"/>
+          <path d="M-3 30 a15 16 0 0 1 30 0 z" fill="#7C7E54"/>
+          <circle r="27" fill="url(#pLight)"/>
+        </g>
+        <circle r="27" fill="none" stroke="#6B6E45" stroke-opacity="0.55" stroke-width="1.4"/>
+      </g>
+      <!-- upper-right -->
+      <g transform="translate(1360,700)">
+        <circle r="27.5" fill="#fff" opacity="0.96"/>
+        <circle r="23" fill="#CBCBA8" clip-path="url(#pc2)"/>
+        <g clip-path="url(#pc2)">
+          <circle cx="-7" cy="-5" r="8" fill="#A2A47E"/>
+          <path d="M-22 24 a15 16 0 0 1 30 0 z" fill="#A2A47E"/>
+          <circle cx="9" cy="-2" r="7" fill="#85875F"/>
+          <path d="M-2 26 a13 14 0 0 1 26 0 z" fill="#85875F"/>
+          <circle r="23" fill="url(#pLight)"/>
+        </g>
+        <circle r="23" fill="none" stroke="#6B6E45" stroke-opacity="0.50" stroke-width="1.3"/>
+      </g>
+      <!-- left, close to centre : the most present pair -->
+      <g transform="translate(484,700)">
+        <circle r="31.5" fill="#fff" opacity="0.97"/>
+        <circle r="27" fill="#A9AB80" clip-path="url(#pc1)"/>
+        <g clip-path="url(#pc1)">
+          <circle cx="-10" cy="-5" r="9.5" fill="#7C7E54"/>
+          <path d="M-27 28 a17 18 0 0 1 34 0 z" fill="#7C7E54"/>
+          <circle cx="10" cy="-3" r="8.5" fill="#62643E"/>
+          <path d="M-4 30 a15 16 0 0 1 30 0 z" fill="#62643E"/>
+          <circle r="27" fill="url(#pLight)"/>
+        </g>
+        <circle r="27" fill="none" stroke="#4E5132" stroke-opacity="0.60" stroke-width="1.5"/>
+      </g>
+      <!-- right, close to centre -->
+      <g transform="translate(1264,700)">
+        <circle r="31.5" fill="#fff" opacity="0.97"/>
+        <circle r="27" fill="#C6C7A2" clip-path="url(#pc1)"/>
+        <g clip-path="url(#pc1)">
+          <circle cx="-9" cy="-6" r="9.5" fill="#9B9D77"/>
+          <path d="M-26 28 a17 18 0 0 1 34 0 z" fill="#9B9D77"/>
+          <circle cx="11" cy="-3" r="8.5" fill="#80825A"/>
+          <path d="M-3 30 a15 16 0 0 1 30 0 z" fill="#80825A"/>
+          <circle r="27" fill="url(#pLight)"/>
+        </g>
+        <circle r="27" fill="none" stroke="#6B6E45" stroke-opacity="0.55" stroke-width="1.4"/>
+      </g>
+      <!-- lower pair, smaller + further, near the props -->
+      <g transform="translate(584,1300)">
+        <circle r="24.5" fill="#fff" opacity="0.95"/>
+        <circle r="20" fill="#BCBE94" clip-path="url(#pc3)"/>
+        <g clip-path="url(#pc3)">
+          <circle cx="-6" cy="-4" r="7" fill="#8E906A"/>
+          <path d="M-19 21 a13 14 0 0 1 26 0 z" fill="#8E906A"/>
+          <circle cx="8" cy="-2" r="6" fill="#73754D"/>
+          <path d="M-2 22 a11 12 0 0 1 22 0 z" fill="#73754D"/>
+          <circle r="20" fill="url(#pLight)"/>
+        </g>
+        <circle r="20" fill="none" stroke="#6B6E45" stroke-opacity="0.46" stroke-width="1.2"/>
+      </g>
+      <g transform="translate(1164,1300)">
+        <circle r="24.5" fill="#fff" opacity="0.95"/>
+        <circle r="20" fill="#CACBA6" clip-path="url(#pc3)"/>
+        <g clip-path="url(#pc3)">
+          <circle cx="-6" cy="-4" r="7" fill="#9EA079"/>
+          <path d="M-19 21 a13 14 0 0 1 26 0 z" fill="#9EA079"/>
+          <circle cx="8" cy="-2" r="6" fill="#83855B"/>
+          <path d="M-2 22 a11 12 0 0 1 22 0 z" fill="#83855B"/>
+          <circle r="20" fill="url(#pLight)"/>
+        </g>
+        <circle r="20" fill="none" stroke="#6B6E45" stroke-opacity="0.46" stroke-width="1.2"/>
+      </g>
+    </g>
+
+    <!-- the SOLID centre figure: the host, received into the circle (filled, confident) -->
+    <g transform="translate(874,990)" fill="#4E5132" opacity="0.52">
+      <circle cy="-26" r="16"/>
+      <path d="M-22 22 a22 29 0 0 1 44 0 z"/>
+    </g>
+  </svg>
+
+  <!-- paper grain -->
+  <svg class="grain" viewBox="0 0 1748 2480" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <filter id="grainF"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0.18  0 0 0 0 0.19  0 0 0 0 0.10  0 0 0 0.05 0"/></filter>
+    </defs>
+    <rect width="1748" height="2480" filter="url(#grainF)"/>
+  </svg>
+
+  <div class="vignette"></div>
+
+  <!-- ============ CONTENT ============ -->
+  <div class="content">
+
+    <div class="mast">
+      <div class="wordmark">ARIVELA</div>
+      <div class="mast-rule"></div>
+      <div class="eyebrow">For Teachers&nbsp;&middot;&nbsp;Facilitators&nbsp;&middot;&nbsp;Studios&nbsp;&middot;&nbsp;Schools</div>
+    </div>
+
+    <div class="hero">
+      <h1><span class="l1">there&rsquo;s a community</span><span class="l2">already looking for you.</span></h1>
+      <div class="descender">let them find what you hold.</div>
+    </div>
+
+    <div class="gather">
+      <div class="frame">
+        <span class="tick-h l"></span><span class="tick-h r"></span>
+        <div class="frame-inner">
+          <div class="ad">
+            <div class="ad-kick"><span class="ad-tag">Photo &mdash; received</span></div>
+            <div class="ad-body">A warm, diverse group turning to welcome one facilitator in.
+              The feeling is being found, never performing. Placeless room.</div>
+            <div class="ad-freepik"><b>Freepik</b> &ldquo;group welcoming teacher into circle,
+              warm natural light, candid&rdquo;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lead">
+      <p>you don&rsquo;t need to perform or sell &mdash; you need to be found,<br>
+        by a real, growing community of people who&rsquo;d love what you do.</p>
+    </div>
+
+    <div class="props">
+      <div class="prop">
+        <div class="num">01<span class="sl">&mdash;</span></div>
+        <div class="ptxt">
+          <div class="ptitle">more guests for your events, retreats &amp; trainings.</div>
+          <div class="pbody">a real, growing community turns toward your work &mdash; you&rsquo;re found, not buried.</div>
+        </div>
+      </div>
+      <div class="prop">
+        <div class="num">02<span class="sl">&mdash;</span></div>
+        <div class="ptxt">
+          <div class="ptitle">create your profile, with your education, training and lineage.</div>
+          <div class="pbody">your story carries your credibility: the years you studied, where, and with whom.</div>
+        </div>
+      </div>
+      <div class="prop">
+        <div class="num">03<span class="sl">&mdash;</span></div>
+        <div class="ptxt">
+          <div class="ptitle">add your places, and link the teachers who hold space there.</div>
+          <div class="pbody">the rooms you teach in, connected to the people who hold them &mdash; your circle, made visible.</div>
+        </div>
+      </div>
+      <div class="prop">
+        <div class="num">04<span class="sl">&mdash;</span></div>
+        <div class="ptxt">
+          <div class="ptitle">list your online offerings.<span class="soon">soon</span></div>
+          <div class="pbody">a place for the practice you share beyond the room &mdash; quietly, when it&rsquo;s ready.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div class="qr-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1D1D21" d="M2 2.5h7m2 0h5m2 0h1m1 0h7M2 3.5h1m5 0h1m3 0h2m1 0h4m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h5m2 0h1m2 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h2m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m1 0h1m1 0h3m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m1 0h2m1 0h1m2 0h1M2 10.5h1m1 0h5m4 0h2m1 0h1m3 0h5M2 11.5h2m2 0h1m2 0h1m3 0h1m5 0h1m1 0h1m3 0h1M2 12.5h1m1 0h1m1 0h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h1m1 0h2M2 13.5h1m11 0h1m1 0h2m8 0h1M6 14.5h7m4 0h1m1 0h2m1 0h1m1 0h3M2 15.5h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h1M2 16.5h1m4 0h6m2 0h3m3 0h3m1 0h2M2 17.5h1m2 0h3m1 0h1m2 0h1m1 0h2m1 0h6m3 0h1M2 18.5h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h5m1 0h1M10 19.5h2m5 0h2m3 0h2M2 20.5h7m2 0h4m3 0h1m1 0h1m1 0h1m1 0h3M2 21.5h1m5 0h1m1 0h1m1 0h2m2 0h1m1 0h1m3 0h2M2 22.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h6m1 0h1m1 0h1M2 23.5h1m1 0h3m1 0h1m1 0h2m2 0h3m2 0h2m1 0h5M2 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m2 0h1m3 0h2m1 0h1M2 25.5h1m5 0h1m5 0h2m1 0h7m2 0h1M2 26.5h7m1 0h1m3 0h1m1 0h1m4 0h6"/></svg>
+      </div>
+      <div class="cta-text">
+        <div class="cta-link">create your host profile&nbsp;<span class="arr">&rarr;</span></div>
+        <div class="cta-rule"></div>
+        <div class="cta-url">arivela.co</div>
+        <div class="cta-label">be found by your community</div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="foot-rule"></div>
+      <div class="foot-line">one community, many practices</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
